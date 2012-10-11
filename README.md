@@ -1,4 +1,4 @@
-Poole Bootstrap
-=================
+# Bootstrap
 
-A minimal template to get started with Jekyll and Poole.
+## Getting Started
+
