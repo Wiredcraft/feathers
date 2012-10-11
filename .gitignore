@@ -1,2 +1,5 @@
+.*
+!.gitignore
+!.gitmodules
+
 _site/*
-.DS_Store
