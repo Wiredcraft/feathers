@@ -5,6 +5,10 @@ baseurl: ""
 exclude:
 - .gitignore
 - README.md
+- Makefile
+- Rakefile
+- component.json
+- components
 
 prose:
   rooturl: "_posts"
