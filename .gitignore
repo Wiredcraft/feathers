@@ -1,1 +1,6 @@
-_site/
+.*
+!.gitignore
+!.gitmodules
+
+/_site
+/components

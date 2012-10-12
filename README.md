@@ -1,2 +1,4 @@
-jekyll-boilerplate
-==================
+# Bootstrap
+
+## Getting Started
+

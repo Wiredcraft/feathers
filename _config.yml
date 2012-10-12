@@ -1,0 +1,24 @@
+auto: true
+server: true
+permalink: none
+baseurl: ""
+exclude:
+- .gitignore
+- README.md
+- Makefile
+- Rakefile
+- component.json
+- components
+
+prose:
+  rooturl: "_posts"
+  metadata: 
+    _posts/articles: |
+      published: false
+      layout: article
+      title: Your Post Title
+      abstract: Short summary of your article.
+      author_twitter: johndoe
+      author: John Doe
+      categories:
+      - articles

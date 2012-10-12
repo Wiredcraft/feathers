@@ -1,0 +1,23 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'/>
+  <title>Test</title>
+  <link rel='stylesheet' href='{{site.baseurl}}/test/vendor.css'>
+  {% include templates.html %}
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src='{{site.baseurl}}/vendor.js'></script>
+  <script src='{{site.baseurl}}/app.js'></script>
+  <script src='{{site.baseurl}}/test/vendor.js'></script>
+  <script>mocha.ignoreLeaks()</script>
+  <script>mocha.setup('bdd')</script>
+  <script src='{{site.baseurl}}/test/tests.js'></script>
+  <script>
+    mocha.run();
+  </script>
+</body>
+</html>

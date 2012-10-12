@@ -1,0 +1,3 @@
+---
+---
+{% include tests/foo.js %}
