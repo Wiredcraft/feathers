@@ -1,33 +1,14 @@
 ---
+layout: h5bp-stripped
 ---
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset='UTF-8'/>
-  <title>Poole &middot; Serving Jekyll faithfully</title>
-  <link rel='shortcut icon' href='{{site.baseurl}}/images/favicon.ico' type='image/x-icon' />
-  <link rel='stylesheet' href='{{site.baseurl}}/fonts/open-sans.css'>
-  <link rel='stylesheet' href='{{site.baseurl}}/app.css'>
-  {% include templates.html %}
-</head>
-<body>
-  <div id='container'>
-
+<div id="container">
     <div id="header">
-      <div class="navigation">
-        <a href="{{site.baseurl}}/" class="title">Bootstrap</a>
-      </div>
+        <div class="navigation">
+            <a href="{{site.baseurl}}/" class="title">Home</a>
+        </div>
     </div>
-
-    <div id='main'>{{content}}</div>
-  </div>
-
-  <div id='footer'>
-    <div class="footer-content">
-    </div>
-  </div>
-
-  <script src='{{site.baseurl}}/vendor.js'></script>
-  <script src='{{site.baseurl}}/app.js'></script>
-</body>
-</html>
+    <div id="main">{{content}}</div>
+</div>
+<div id="footer">
+    <div class="footer-content"></div>
+</div>
