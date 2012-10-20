@@ -10,6 +10,8 @@ exclude:
 - component.json
 - components
 
+title: "Jekyll boilerplate"
+
 prose:
   rooturl: "_posts"
   metadata: 
