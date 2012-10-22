@@ -6,7 +6,6 @@
   "dependencies": {
     "component/cookie": "*",
     "component/query-string": "*",
-    "visionmedia/page.js": "*",
     "visionmedia/superagent": "*"
   },
   "development": {},
