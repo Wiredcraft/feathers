@@ -1,0 +1,7 @@
+---
+---
+{% include css/normalize.css %}
+{% include css/font.css %}
+{% include css/style.css %}
+
+{% include css/plugin/fancybox.css %}

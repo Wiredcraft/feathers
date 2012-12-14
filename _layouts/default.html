@@ -21,20 +21,16 @@ layout: default
     <link rel='apple-touch-icon' sizes='72x72' href='{{site.url}}/images/apple-touch-icon-72x72.png'>
     <link rel='apple-touch-icon' sizes='114x114' href='{{site.url}}/images/apple-touch-icon-114x114.png'>
 
-    <!-- Javascirpt -->
-    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-
   </head>
   <body>
-    <!-- Google analytics -->
-    {% include google-analytics %}
-
     <div id='app'>
       {{content}}
     </div>
-
+    
     <!-- JS -->
     {% include templates.html %}
     <script src="{{site.url}}app.js"></script>
+    {% include google-analytics %}
+    
   </body>
 </html>
