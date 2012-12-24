@@ -1,6 +1,5 @@
 ## Jekyll-boilerplate
 
-[jekyll-boilerplate](https://github.com/Wiredcraft/jekyll-boilerplate/wiki/Home) is a reusable [jekyll](https://github.com/mojombo/jekyll) layout for client side. It is a jekyll-based layout, therefore we can use this for generating blog page too, its concept started from that we should have **re-useable** layout which can fit and start immediately for all our project or page. 
 
     .
     | jekyll-boilerplate 
