@@ -9,10 +9,7 @@
         url: '{{site.apiurl}}',
 
         completed: function() {
-            console.log(arguments,'11111');
-            // return this.filter(function( todo ) {
-            //     return todo.get('completed');
-            // });
+            return this.get('4378525');
         }
     
     });

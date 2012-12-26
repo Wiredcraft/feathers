@@ -4,16 +4,25 @@
     var Router = Backbone.Router.extend({
         
         routes:{
-            '*filter': 'home'
+            '': 'gists',
+            '/discover': 'gists',
+            // '/forked': 'forked',
+            // '/starred': 'starred',
+            'gist/:id': 'gist'
         },
 
         initialize: function() {
             new app.views.AppView();
         },
 
-        home: function (param) {
-            console.log(param,'param');
-        }
+        gists: function () {
+            console.log('home');
+        },
+
+        gist: function (param) {
+            console.log('11111');
+            console.log(param, collections.Items, 'gist');
+        },
     });
 
     app.routers = new Router();

@@ -1,4 +1,4 @@
-(function(views) {
+(function(views, collections) {
     
     // The Application
     views.AppView = Backbone.View.extend({
@@ -10,24 +10,20 @@
         },
 
         initialize: function() {
-            this.headerView = new app.views.Header();
+            collections.Items.on( 'all', this.render, this );
+            collections.Items.fetch();
+        },
+        
+        render: function() {
+            this.headerView = new views.Header();
             this.headerView.render();
 
-            app.collections.Items.fetch({
-                success: function() {
-                    console.log(arguments, 'ssss');
-                },
-                error: function() {
-                    console.log(arguments, 'eeeee');
-                }
-            });
+            console.log('ttttt');
+            // console.log(collections.Items,'!!!!!!!');
 
-        },
-
-        render: function() {
-            console.log(arguments,'111');
+            // console.log(collections.Items.completed());
         }
 
     });
 
-}).call(this, window.app.views);
+}).call(this, app.views, app.collections);

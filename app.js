@@ -7,6 +7,7 @@
 {% include init.js %}
 {% include model/item.js %}
 {% include collection/items.js %}
+{% include view/header.js %}
 {% include view/item.js %}
 {% include view/app.js %}
 {% include router.js %}
