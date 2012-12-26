@@ -13,15 +13,15 @@
             collections.Items.on( 'all', this.render, this );
             collections.Items.fetch();
         },
-        
+
         render: function() {
             this.headerView = new views.Header();
             this.headerView.render();
 
             console.log('ttttt');
             // console.log(collections.Items,'!!!!!!!');
-
-            // console.log(collections.Items.completed());
+            // console.log(collections.Items.completed(),'22222');
+            // console.log(collections.Items.completed().toJSON(),'22222');
         }
 
     });
