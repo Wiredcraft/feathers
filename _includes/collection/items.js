@@ -8,8 +8,8 @@
 
         url: '{{site.apiurl}}',
 
-        completed: function() {
-            return this.get('4378833');
+        completed: function (id) {
+            return this.get(id);
         }
     
     });

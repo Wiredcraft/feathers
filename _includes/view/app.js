@@ -1,4 +1,4 @@
-(function(views, collections) {
+(function(routers, views, collections) {
     
     // The Application
     views.AppView = Backbone.View.extend({
@@ -18,12 +18,12 @@
             this.headerView = new views.Header();
             this.headerView.render();
 
+            routers = new routers.Router();
+            Backbone.history.start();
+
             console.log('ttttt');
-            // console.log(collections.Items,'!!!!!!!');
-            // console.log(collections.Items.completed(),'22222');
-            // console.log(collections.Items.completed().toJSON(),'22222');
         }
 
     });
 
-}).call(this, app.views, app.collections);
+}).call(this, app.routers, app.views, app.collections);

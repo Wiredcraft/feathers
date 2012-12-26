@@ -2,7 +2,7 @@
 
     //Item View
 
-    views.ItemView = Backbone.View.extend({
+    views.Item = Backbone.View.extend({
         
         el: '',
         
@@ -13,7 +13,8 @@
         template: $('script[name=item]').html(),
 
         initialize: function() {
-            this.model.on( 'change', this.render, this );
+            console.log(this.model,'vvvvvvvvvv');
+            // this.model.on( 'change', this.render, this );
         },
 
         

@@ -1,7 +1,7 @@
-(function() {
+(function(routers, views, collections) {
   
     // Router
-    var Router = Backbone.Router.extend({
+    routers.Router = Backbone.Router.extend({
         
         routes:{
             '': 'gists',
@@ -12,20 +12,24 @@
         },
 
         initialize: function() {
-            new app.views.AppView();
+           
         },
 
         gists: function () {
-            console.log('home');
+            if (collections.Items.length) {
+                console.log(collections.Items,'home');
+                // new views.ItemList({collection: this.collection}).render();
+            }
         },
 
         gist: function (param) {
-            console.log('11111');
-            console.log(param, collections.Items, 'gist');
-        },
+            var model = collections.Items.completed(param);
+            if (model) {
+                new views.Item({model: model}).render();
+            }
+        }
     });
 
-    app.routers = new Router();
-    Backbone.history.start();
+    new views.AppView();
 
-}).call(this);
+}).call(this, app.routers, app.views, app.collections);
