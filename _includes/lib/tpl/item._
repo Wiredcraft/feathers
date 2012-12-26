@@ -1,1 +1,6 @@
-body-body-body-body-body-body
+<div>
+    <a href="<%= data.url %>">
+        <p class="gistid"><%= data.id %><span>updated at <%= data.updated_at %></span></p>
+        <p class="userid"><%= data.user.id %></p>
+    </a>
+</div>
