@@ -1,16 +1,13 @@
-var app = app || {};
-
-(function() {
+(function(collections) {
 
     //Collection
     
-    app.Items = Backbone.Collection.extend({
+    collections.Items = Backbone.Collection.extend({
         
-        model: app.Item,
+        model: app.models.Item,
 
         url: '{{site.apiurl}}'
     
     });
 
-
-}());
+}).call(this, window.app.collections);

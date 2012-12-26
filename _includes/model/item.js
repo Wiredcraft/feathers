@@ -1,10 +1,8 @@
-var app = app || {};
-
-(function() {
+(function(models) {
     
     //Model
  
-    app.Item = Backbone.Model.extend({
+    models.Item = Backbone.Model.extend({
 
         urlRoot: '{{site.apiurl}}',
 
@@ -18,4 +16,4 @@ var app = app || {};
 
     });
 
-}());
+}).call(this, window.app.models);

@@ -1,9 +1,6 @@
-var app = app || {};
-
-(function() {
-   
+(function(routers) {
     // Router
-    app.Router = Backbone.Router.extend({
+    var Router = Backbone.Router.extend({
         
         routes:{
             '*filter': 'home'
@@ -14,8 +11,7 @@ var app = app || {};
         }
     });
 
-    app.Router = new app.Router();
+    routers = new Router();
     Backbone.history.start();
 
-    new app.AppView();        
-}());
+}).call(this, window.app.routers);

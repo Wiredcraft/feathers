@@ -22,19 +22,15 @@ layout: default
 
   </head>
   <body>
-    <div id="app">
-        {{content}}
-    </div>
-    <!-- JS -->
+    
+    <div id="app">{{content}}</div>
+    
     {% include lib/templates.html %}
+    
+    <!-- JS -->
     <script src="{{site.url}}/app.js"></script>
     
-    <!-- google analytics 
-    <script type="text/javascript">
-        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script> -->
+    <!-- google analytics -->
+    <!-- {% include lib/js/plugin/google-analytics %} -->
   </body>
 </html>

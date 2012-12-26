@@ -1,11 +1,11 @@
-var app = app || {};
-
-$(function() {
+(function(views) {
 
     //Item View
 
-    app.ItemView = Backbone.View.extend({
-
+    views.ItemView = Backbone.View.extend({
+        
+        el: '',
+        
         events: {
 
         },
@@ -16,13 +16,12 @@ $(function() {
             this.model.on( 'change', this.render, this );
         },
 
-        // Re-render the titles of the todo item.
+        
         render: function() {
-            console.log(this.template);
             // this.$el.html( this.template( this.model.toJSON() ) );
-            
             return this;
         }
 
     });
-});
+
+}).call(this, window.app.views);

@@ -1,10 +1,7 @@
-var app = app || {};
-
-(function() {
-  
+(function(views) {
+    
     // The Application
-
-    app.AppView = Backbone.View.extend({
+    views.AppView = Backbone.View.extend({
 
         el: '#app',
 
@@ -34,4 +31,4 @@ var app = app || {};
 
     });
 
-}());
+}).call(this, window.app.views);
