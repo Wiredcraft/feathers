@@ -10,7 +10,7 @@
 
         },
 
-        template: _.template( $('script[name=header]').html() ),
+        template: _.template($('script[name=header]').html()),
 
         initialize: function() {
             // this.model.on( 'change', this.render, this );

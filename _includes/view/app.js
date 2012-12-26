@@ -15,17 +15,14 @@
         },
 
         render: function() {
+            
             this.headerView = new views.Header();
             this.headerView.render();
-            
-            this.itemView = new views.ItemView();
-            this.itemView.render();
             
 
             routers = new routers.Router();
             Backbone.history.start();
 
-            console.log('ttttt');
         }
 
     });

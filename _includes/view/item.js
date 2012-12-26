@@ -4,23 +4,22 @@
 
     views.Item = Backbone.View.extend({
         
-        el: 'li',
+        el: '#item',
         
         events: {
 
         },
 
-        template: $('script[name=item]').html(),
-
+        template: _.template($('script[name=item]').html()),
+        
         initialize: function() {
-            console.log(this.model,'vvvvvvvvvv');
-            // this.model.on( 'change', this.render, this );
+            console.log('[v]item',this.model);
+            this.model.on( 'change', this.render, this );
         },
 
-        
         render: function() {
-            console.log('rendering item view');
-            this.$el.html( this.template( this.model.toJSON() ) );
+            console.log('rendering item view', this.el);
+            $(this.el).html(this.template());
             return this;
         }
 

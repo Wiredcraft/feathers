@@ -12,21 +12,20 @@
         },
 
         initialize: function() {
-           
         },
 
         gists: function () {
             if (collections.Items.length) {
-                console.log(collections.Items,'home');
-                // new views.ItemList({collection: this.collection}).render();
-            }
+                           console.log('router, gists' ,collections.Items);
+                           new views.ItemList({collection: collections.Items}).render();
+                       }
         },
 
         gist: function (param) {
             var model = collections.Items.completed(param);
-            if (model) {
-                new views.Item({model: model}).render();
-            }
+                       if (model) {
+                           new views.Item({model: model}).render();
+                       }
         }
     });
 

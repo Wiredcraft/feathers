@@ -8,7 +8,7 @@ body {
 
 body {
   background: #efefef;
-  color: #aaa;
+  color: #000;
   font-size: 14px;
   padding: 10px;
   position: relative;
@@ -22,5 +22,4 @@ header {
 
 a {
   text-decoration: none;
-  color: #888;
 }
