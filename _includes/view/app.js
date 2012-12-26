@@ -10,23 +10,22 @@
         },
 
         initialize: function() {
+            this.headerView = new app.views.Header();
+            this.headerView.render();
 
-            // app.Items.on( 'all', this.render, this );
-
-            new app.Items().fetch({
+            app.collections.Items.fetch({
                 success: function() {
-                    console.log(arguments,'ssss');
+                    console.log(arguments, 'ssss');
                 },
                 error: function() {
-                    console.log(arguments,'eeeeee');
+                    console.log(arguments, 'eeeee');
                 }
             });
+
         },
 
         render: function() {
-            
             console.log(arguments,'111');
-
         }
 
     });
