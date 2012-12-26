@@ -17,9 +17,13 @@
         render: function() {
             this.headerView = new views.Header();
             this.headerView.render();
+            
+            this.itemView = new views.ItemView();
+            this.itemView.render();
+            
 
-            console.log('ttttt');
-            // console.log(collections.Items,'!!!!!!!');
+            console.log('rendering AppView');
+            console.log(collections.Items,'!!!!!!!');
             // console.log(collections.Items.completed(),'22222');
             // console.log(collections.Items.completed().toJSON(),'22222');
         }

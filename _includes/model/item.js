@@ -8,7 +8,8 @@
 
         defaults: {},
 
-        initialize: function(){
+        initialize: function(data){
+            console.log('initializing model, each item ', data.id);
             // this.bind('change', function () {
             //     console.log('change', arguments);
             // });

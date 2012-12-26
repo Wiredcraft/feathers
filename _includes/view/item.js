@@ -4,7 +4,7 @@
 
     views.ItemView = Backbone.View.extend({
         
-        el: '',
+        el: 'li',
         
         events: {
 
@@ -12,13 +12,15 @@
 
         template: $('script[name=item]').html(),
 
-        initialize: function() {
+        initialize: function(data) {
+            console.log('[v] item' , data  );
             this.model.on( 'change', this.render, this );
         },
 
         
         render: function() {
-            // this.$el.html( this.template( this.model.toJSON() ) );
+            console.log('rendering item view');
+            this.$el.html( this.template( this.model.toJSON() ) );
             return this;
         }
 
