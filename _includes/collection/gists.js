@@ -1,7 +1,6 @@
 (function(collections) {
 
     // Gist Collection
-    
     var Gists = Backbone.Collection.extend({
         
         model: app.models.Gist,
@@ -14,16 +13,6 @@
     
     });
 
-    new Gists().fetch({
-        success: function(res) {
-            console.log('fetch Usergists success', res.models);
-            // $.each(res.models, function(i, index){
-            //     $('#main ul').append('<li>'+ res.models.id + '</li>');
-            // });   
-        },
-        error: function(argument) {
-            console.log('fetch model error', arguments);
-        }
-    });
+    collections.Gists = new Gists();
 
 }).call(this, window.app.collections);

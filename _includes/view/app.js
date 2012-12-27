@@ -13,7 +13,7 @@
         initialize: function(options) {
             // loading
             views.UI.loading();
-
+            
             // cache choosen
             this.view = options.view;
             this.param = options.param;
@@ -25,6 +25,7 @@
         render: function() {
             if (this.param) {
                 // model
+                
                 var model = this.collection.completed(this.param);
                 if (model) {
                     new this.view({model: model}).render();

@@ -24,9 +24,9 @@
         
 
         render: function() {
-            // console.log('[v] rendering usergists', this.el);
-            // $(this.el).html(this.template({collection: this.collection.toJSON()}));
-            // return this;
+            console.log('[v] rendering Gists', this.el);
+            $(this.el).html(this.template({collection: this.collection.toJSON()}));
+            return this;
         }
 
     });

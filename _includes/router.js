@@ -8,7 +8,7 @@
             '/discover': 'items',
             // '/forked': 'forked',
             // '/starred': 'starred',
-            'gist/:id': 'item'
+            'gist/:id': 'item',
             'user': 'usergists'
         },
 
@@ -26,6 +26,19 @@
                 new views.AppView({
                     collection: collections.Items,
                     view: views.ItemList
+                });
+            }
+        },
+        
+        usergists: function() {
+            if (collections.Gists.length) {
+                // the exsit collection 
+                new views.Gists({collection: collections.Gists}).render();
+            } else {
+                // just opened this url need get the collection
+                new views.AppView({
+                    collection: collections.Gists,
+                    view: views.Gists
                 });
             }
         },

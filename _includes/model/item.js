@@ -1,7 +1,6 @@
 (function(models) {
     
     //Model
- 
     models.Item = Backbone.Model.extend({
         
         url: '{{site.apiurl}}',

@@ -1,7 +1,6 @@
 (function(collections) {
 
-    // Item Collection
-    
+    // Item Collection 
     var Items = Backbone.Collection.extend({
         
         model: app.models.Item,

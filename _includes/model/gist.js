@@ -1,7 +1,6 @@
 (function(models) {
     
-    //Model
- 
+    // Gist
     models.Gist = Backbone.Model.extend({
         
         urlRoot: 'https://api.github.com/users/aimeesohn/gists',
