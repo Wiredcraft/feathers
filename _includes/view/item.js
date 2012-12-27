@@ -4,14 +4,11 @@
     views.Item = Backbone.View.extend({
         
         el: '#main',
-        
-        events: {
-
-        },
 
         template: _.template($('script[name=item]').html()),
         
         initialize: function() {
+            console.log('[v]item initializing')
             this.model.on( 'change', this.render, this );
         },
         

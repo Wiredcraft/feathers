@@ -8,20 +8,9 @@
         template: _.template($('script[name=gists]').html()),
         
         initialize: function() {
-            // this.loading();
-            // console.log('[v]usergists',this.collection);
-            // this.collection.on( 'change', this.render, this );
-            // this.loaded();
+            console.log('[v]gists initializing');
+            this.collection.on( 'change', this.render, this );
         },
-        
-        // loading: function() {
-        //   $('#main').html('<div class="loading"><span>Loading ...</span></div>');
-        // },
-        // 
-        // loaded: function(){
-        //   $('#main .loading').remove();
-        // },
-        
 
         render: function() {
             console.log('[v] rendering Gists', this.el);

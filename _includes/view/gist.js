@@ -8,14 +8,13 @@
         template: _.template($('script[name=gist]').html()),
         
         initialize: function() {
-            console.log('[v]gist initializing')
-            // this.collection.on( 'change', this.render, this );
+            console.log('[v]gist initializing');
+            this.collection.on( 'change', this.render, this );
         },        
 
         render: function() {
-            // console.log('[v] rendering Gist', this.el);
-            // $(this.el).html(this.template({collection: this.collection.toJSON()}));
-            // return this;
+            $(this.el).html(this.template({model:this.model}));
+            return this;
         }
 
     });
