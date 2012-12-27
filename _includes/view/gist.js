@@ -1,6 +1,6 @@
 (function(views) {
-    
-    // Users' gist view
+
+    //Item View
     views.Gist = Backbone.View.extend({
         
         el: '#main',
@@ -8,10 +8,10 @@
         template: _.template($('script[name=gist]').html()),
         
         initialize: function() {
-            console.log('[v]gist initializing');
-            this.collection.on( 'change', this.render, this );
-        },        
-
+            console.log('[v]item initializing')
+            this.model.on( 'change', this.render, this );
+        },
+        
         render: function() {
             $(this.el).html(this.template({model:this.model}));
             return this;

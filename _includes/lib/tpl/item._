@@ -1,8 +1,0 @@
-<section>
-    <h3>Gist : <%= model.id %></h3>
-    <ul>
-        <li><%= model.attributes.public %></li>
-        <li><%= model.attributes.created_at %></li>
-    </ul>
-    <a href='<%= model.attributes.html_url %>' target='_blank'>Link</a>
-</section>

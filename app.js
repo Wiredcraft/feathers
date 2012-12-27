@@ -7,15 +7,15 @@
 
 {% include init.js %}
 {% include view/app.js %}
-{% include model/item.js %}
 {% include model/gist.js %}
-{% include collection/items.js %}
+{% include model/usergist.js %}
 {% include collection/gists.js %}
+{% include collection/usergists.js %}
 {% include view/ui.js %}
 {% include view/header.js %}
-{% include view/item.js %}
-{% include view/itemlist.js %}
 {% include view/gist.js %}
 {% include view/gists.js %}
+{% include view/usergist.js %}
+{% include view/usergists.js %}
 {% include router.js %}
 

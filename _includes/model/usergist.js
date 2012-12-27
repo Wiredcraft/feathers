@@ -1,14 +1,14 @@
 (function(models) {
     
-    //Model
-    models.Item = Backbone.Model.extend({
+    // Gist
+    models.Usergist = Backbone.Model.extend({
         
-        url: '{{site.apiurl}}',
+        urlRoot: 'https://api.github.com/users/aimeesohn/gists',
 
         defaults: {},
 
         initialize: function(){
-            console.log('initializing model[item]');
+            console.log('initializing model[Usergist]');
             // this.bind('change', function () {
             //     console.log('change', arguments);
             // });
@@ -17,3 +17,4 @@
     });
 
 }).call(this, window.app.models);
+

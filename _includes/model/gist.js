@@ -1,14 +1,14 @@
 (function(models) {
     
-    // Gist
+    //Model
     models.Gist = Backbone.Model.extend({
         
-        urlRoot: 'https://api.github.com/users/aimeesohn/gists',
+        url: '{{site.apiurl}}',
 
         defaults: {},
 
         initialize: function(){
-            console.log('initializing model[gist]');
+            console.log('initializing model[Gist]');
             // this.bind('change', function () {
             //     console.log('change', arguments);
             // });
@@ -17,4 +17,3 @@
     });
 
 }).call(this, window.app.models);
-

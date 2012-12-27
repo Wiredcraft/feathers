@@ -1,1 +1,5 @@
-<h1>Gists template</h1>
+<% _.each(collection, function(model){ %>
+    <a href='#gist/<%= model.id %>' name='<%= model.id %>'>
+        <h2><%= model.id %></h2>
+    </a>
+<% }); %>

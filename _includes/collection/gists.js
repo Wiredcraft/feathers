@@ -1,11 +1,11 @@
 (function(collections) {
 
-    // Gist Collection
+    // Item Collection 
     var Gists = Backbone.Collection.extend({
         
         model: app.models.Gist,
 
-        url: 'https://api.github.com/users/aimeesohn/gists',
+        url: '{{site.apiurl}}',
 
         completed: function (id) {
             return this.get(id);

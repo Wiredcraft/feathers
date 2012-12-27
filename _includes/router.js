@@ -4,11 +4,11 @@
     var Router = Backbone.Router.extend({
         
         routes:{
-            '': 'items',
-            '/discover': 'items',
+            '': 'gists',
+            '/discover': 'gists',
             // '/forked': 'forked',
             // '/starred': 'starred',
-            'gist/:id': 'item',
+            'gists/:id': 'gist',
             'user': 'usergists'
         },
 
@@ -17,20 +17,7 @@
             this.headerView = new views.Header();
         },
 
-        items: function () {
-            if (collections.Items.length) {
-                // the exsit collection 
-                new views.ItemList({collection: collections.Items}).render();
-            } else {
-                // just opened this url need get the collection
-                new views.AppView({
-                    collection: collections.Items,
-                    view: views.ItemList
-                });
-            }
-        },
-        
-        usergists: function() {
+        gists: function () {
             if (collections.Gists.length) {
                 // the exsit collection 
                 new views.Gists({collection: collections.Gists}).render();
@@ -42,17 +29,30 @@
                 });
             }
         },
+        
+        usergists: function() {
+            if (collections.Usergists.length) {
+                // the exsit collection 
+                new views.UserGists({collection: collections.Usergists}).render();
+            } else {
+                // just opened this url need get the collection
+                new views.AppView({
+                    collection: collections.Usergists,
+                    view: views.UserGist
+                });
+            }
+        },
 
-        item: function (param) {
-            var model = collections.Items.completed(param);
+        gist: function (param) {
+            var model = collections.Gists.completed(param);
             if (model) {
                 // the exsit model in collection
-                new views.Item({model: model}).render();
+                new views.Gist({model: model}).render();
             } else {
                 // get the latest collection to find the model or just opened this url need get the collection
                 new views.AppView({
-                    collection: collections.Items,
-                    view: views.Item,
+                    collection: collections.Gists,
+                    view: views.Gist,
                     param: param
                 });
             }
