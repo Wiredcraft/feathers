@@ -4,7 +4,7 @@
 
     views.Item = Backbone.View.extend({
         
-        el: '#item',
+        el: '#main',
         
         events: {
 
@@ -18,8 +18,8 @@
         },
 
         render: function() {
-            console.log('rendering item view', this.el);
-            $(this.el).html(this.template());
+            console.log('[v] rendering Item', this.el);
+            $(this.el).html(this.template({model:this.model}));
             return this;
         }
 
