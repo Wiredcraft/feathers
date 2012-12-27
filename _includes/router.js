@@ -1,57 +1,53 @@
 (function(routers, views, collections) {
   
     // Router
-    routers.Router = Backbone.Router.extend({
+    var Router = Backbone.Router.extend({
         
         routes:{
-            '': 'gists',
-            '/discover': 'gists',
+            '': 'items',
+            '/discover': 'items',
             // '/forked': 'forked',
             // '/starred': 'starred',
-            'gist/:id': 'gist',
+            'gist/:id': 'item'
             'user': 'usergists'
         },
 
         initialize: function() {
+            // ui part
+            this.headerView = new views.Header();
         },
 
-        gists: function () {
-            
-            console.log('[Router] gists');
-            
+        items: function () {
             if (collections.Items.length) {
-                console.log('router, gists' ,collections.Items);
+                // the exsit collection 
                 new views.ItemList({collection: collections.Items}).render();
+            } else {
+                // just opened this url need get the collection
+                new views.AppView({
+                    collection: collections.Items,
+                    view: views.ItemList
+                });
             }
         },
 
-        gist: function (param) {
-            console.log('[Router] gist');
+        item: function (param) {
             var model = collections.Items.completed(param);
             if (model) {
+                // the exsit model in collection
                 new views.Item({model: model}).render();
+            } else {
+                // get the latest collection to find the model or just opened this url need get the collection
+                new views.AppView({
+                    collection: collections.Items,
+                    view: views.Item,
+                    param: param
+                });
             }
-                      
-        },
-        
-        usergists: function() {
-            console.log('[Router] usergists');
-            // if (model) {
-            //     new views.Gist({model: model}).render();
-            // }
-            // 
-            // if (collections.Gists.length) {
-            //     console.log('router, usergists' ,collections.Gists);
-            //     new views.Gists({collection: collections.Gists}).render();
-            // }
-            
-            // if (collections.Usergists.length) {
-            //     console.log('router, Usergists' ,collections.Usergists);
-            //     new views.UserGists({collection: collections.Usergists}).render();
-            // }
         }
+
     });
 
-    new views.AppView();
+    routers = new Router();
+    Backbone.history.start();
 
 }).call(this, app.routers, app.views, app.collections);
