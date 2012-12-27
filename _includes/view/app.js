@@ -36,7 +36,7 @@
             } else {
                 // collection
                 if (this.collection.length) {
-                    console.log(this.collection, '11111');
+                    console.log(this.collection);
                     console.log('existing collection',this.collection.length);
                     // if the collection exsit
                     new this.view({collection: this.collection}).render();
