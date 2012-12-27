@@ -29,21 +29,19 @@
                 if (model) {
                     new this.view({model: model}).render();
                 } else {
-                    //error
-                    // todo
-                    console.log('cant find this model');
+                    // no this model
+                    views.UI.showError('cant find this model');
                 }
             } else {
                 // collection
                 if (this.collection.length) {
-
+                    console.log(this.collection, '11111');
                     console.log('existing collection',this.collection.length);
                     // if the collection exsit
                     new this.view({collection: this.collection}).render();
                 } else {
                     // no data
-                    // todo
-                    console.log('cant find any data');
+                    views.UI.showError('cant find any data');
                 }
             }
             // loaded

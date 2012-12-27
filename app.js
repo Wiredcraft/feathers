@@ -15,5 +15,7 @@
 {% include view/header.js %}
 {% include view/item.js %}
 {% include view/itemlist.js %}
+{% include view/gist.js %}
+{% include view/gists.js %}
 {% include router.js %}
 

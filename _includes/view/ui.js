@@ -9,8 +9,8 @@
             
         },
         
-        initialize: function (msg) {
-            $(this.el).html(msg);
+        initialize: function () {
+            
         },
         
         loading: function () {
@@ -23,11 +23,14 @@
         
         hideError: function () {
             $.fancybox.close(true);
+            this.$el.remove();
         },
 
-        showError: function () {
+        showError: function (msg) {
             var that = this;
             
+            $(this.el).html(msg);
+
             $.fancybox( $(this.el), {
                 padding: 0,
                 closeBtn: false,
