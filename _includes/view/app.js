@@ -1,6 +1,7 @@
 (function(routers, views, collections) {
     
-    // The Application
+    // Application
+    // This is the top of application UI.
     views.AppView = Backbone.View.extend({
 
         el: '#app',
@@ -10,19 +11,22 @@
         },
 
         initialize: function() {
-            collections.Items.on( 'all', this.render, this );
-            collections.Items.fetch();
-        },
-
-        render: function() {
+            console.log('Initializing Application');
             
             this.headerView = new views.Header();
             this.headerView.render();
             
+            collections.Items.on( 'all', this.render, this );
+            collections.Items.fetch();
+            
+            // collections.Usergists.on( 'all', this.render, this );
+            // collections.Gists.fetch();
+            
+        },
 
+        render: function() {
             routers = new routers.Router();
             Backbone.history.start();
-
         }
 
     });

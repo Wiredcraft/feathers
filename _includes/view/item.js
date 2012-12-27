@@ -1,7 +1,6 @@
 (function(views) {
 
     //Item View
-
     views.Item = Backbone.View.extend({
         
         el: '#main',
@@ -16,7 +15,7 @@
             console.log('[v]item',this.model);
             this.model.on( 'change', this.render, this );
         },
-
+        
         render: function() {
             console.log('[v] rendering Item', this.el);
             $(this.el).html(this.template({model:this.model}));

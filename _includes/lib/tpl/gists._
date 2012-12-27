@@ -1,0 +1,3 @@
+<% _.each(collection, function(model){ %>
+        <h2>gist : <%= model.id %></h2>
+<% }); %>

@@ -1,18 +1,16 @@
 (function(views) {
 
-    //Item collection View
-    views.ItemList = Backbone.View.extend({
+    // Users' gist collection view
+    views.Gists = Backbone.View.extend({
+        
         el: '#main',
-        events: {
 
-        },
-
-        template: _.template($('script[name=itemlist]').html()),
+        template: _.template($('script[name=gists]').html()),
         
         initialize: function() {
             // this.loading();
-            console.log('[v]itemlist',this.collection);
-            this.collection.on( 'change', this.render, this );
+            // console.log('[v]usergists',this.collection);
+            // this.collection.on( 'change', this.render, this );
             // this.loaded();
         },
         
@@ -24,10 +22,11 @@
         //   $('#main .loading').remove();
         // },
         
+
         render: function() {
-            console.log('[v] rendering ItemList', this.el);
-            $(this.el).html(this.template({collection: this.collection.toJSON()}));
-            return this;
+            // console.log('[v] rendering usergists', this.el);
+            // $(this.el).html(this.template({collection: this.collection.toJSON()}));
+            // return this;
         }
 
     });
