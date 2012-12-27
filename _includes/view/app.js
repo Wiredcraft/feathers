@@ -23,6 +23,7 @@
         },
 
         render: function() {
+            
             if (this.param) {
                 // model
                 var model = this.collection.completed(this.param);
