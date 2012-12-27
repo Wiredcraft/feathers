@@ -1,4 +1,4 @@
-(function(routers, views, collections) {
+(function(routers, views) {
     
     // The Application
     views.AppView = Backbone.View.extend({
@@ -9,22 +9,44 @@
               
         },
 
-        initialize: function() {
-            collections.Items.on( 'all', this.render, this );
-            collections.Items.fetch();
+        initialize: function(options) {
+            // loading
+            views.UI.loading();
+
+            // cache choosen
+            this.view = options.view;
+            this.param = options.param;
+
+            options.collection.on( 'all', this.render, this );
+            options.collection.fetch();
         },
 
         render: function() {
-            
-            this.headerView = new views.Header();
-            this.headerView.render();
-            
-
-            routers = new routers.Router();
-            Backbone.history.start();
-
+            if (this.param) {
+                // model
+                var model = this.collection.completed(this.param);
+                if (model) {
+                    new this.view({model: model}).render();
+                } else {
+                    //error
+                    // todo
+                    console.log('cant find this model');
+                }
+            } else {
+                // collection
+                if (this.collection.length) {
+                    // if the collection exsit
+                    new this.view({collection: this.collection}).render();
+                } else {
+                    // no data
+                    // todo
+                    console.log('cant find any data');
+                }
+            }
+            // loaded
+            views.UI.loaded();
         }
 
     });
 
-}).call(this, app.routers, app.views, app.collections);
+}).call(this, app.routers, app.views);

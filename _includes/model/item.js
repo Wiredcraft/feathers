@@ -9,7 +9,6 @@
         defaults: {},
 
         initialize: function(){
-            console.log('initializing model');
             // this.bind('change', function () {
             //     console.log('change', arguments);
             // });

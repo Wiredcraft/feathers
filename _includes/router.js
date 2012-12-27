@@ -1,34 +1,52 @@
 (function(routers, views, collections) {
   
     // Router
-    routers.Router = Backbone.Router.extend({
+    var Router = Backbone.Router.extend({
         
         routes:{
-            '': 'gists',
-            '/discover': 'gists',
+            '': 'items',
+            '/discover': 'items',
             // '/forked': 'forked',
             // '/starred': 'starred',
-            'gist/:id': 'gist'
+            'gist/:id': 'item'
         },
 
         initialize: function() {
+            // ui part
+            this.headerView = new views.Header();
         },
 
-        gists: function () {
+        items: function () {
             if (collections.Items.length) {
-                           console.log('router, gists' ,collections.Items);
-                           new views.ItemList({collection: collections.Items}).render();
-                       }
+                // the exsit collection 
+                new views.ItemList({collection: collections.Items}).render();
+            } else {
+                // just opened this url need get the collection
+                new views.AppView({
+                    collection: collections.Items,
+                    view: views.ItemList
+                });
+            }
         },
 
-        gist: function (param) {
+        item: function (param) {
             var model = collections.Items.completed(param);
-                       if (model) {
-                           new views.Item({model: model}).render();
-                       }
+            if (model) {
+                // the exsit model in collection
+                new views.Item({model: model}).render();
+            } else {
+                // get the latest collection to find the model or just opened this url need get the collection
+                new views.AppView({
+                    collection: collections.Items,
+                    view: views.Item,
+                    param: param
+                });
+            }
         }
+
     });
 
-    new views.AppView();
+    routers = new Router();
+    Backbone.history.start();
 
 }).call(this, app.routers, app.views, app.collections);
