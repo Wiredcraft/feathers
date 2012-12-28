@@ -3,13 +3,8 @@ server: true
 permalink: none
 url: "http://localhost:4000"
 apiurl: "https://api.github.com/gists"
+title: "feathers"
+description: "feathers"
 exclude:
 - .gitignore
 - README.md
-- Makefile
-- Rakefile
-- component.json
-- components
-
-title: "Jekyll boilerplate"
-description: "Jekyll boilerplate"
