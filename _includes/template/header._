@@ -1,0 +1,11 @@
+<div>
+<ul class="nav">
+    <li class="discover"><a href="#/discover">Discover Gists</a></li>
+    <li class="forked"><a href="#/forked">Forked</a></li>
+    <li class="starred"><a href="#/starred">Starred</a></li>
+</ul>
+
+<label id='search_user' for='search_user'>Search user</label>
+<input type='text' name='search_username' id='search_username' value='' placeholder='Enter a user' />
+<button id='search'>Search</button>
+</div>

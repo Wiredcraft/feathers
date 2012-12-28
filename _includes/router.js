@@ -5,7 +5,7 @@
         
         routes:{
             '': 'gists',
-            '/discover': 'gists',
+            'discover': 'gists',
             'gists/:id': 'gist',
             'user': 'usergists',
             'user/:id': 'usergist'

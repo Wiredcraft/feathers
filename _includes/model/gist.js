@@ -5,12 +5,19 @@
         
         url: '{{site.apiurl}}',
 
-        defaults: {},
+        defaults: {
+           
+        },
 
         initialize: function(){
             // this.bind('change', function () {
             //     console.log('change', arguments);
             // });
+        },
+
+        validate: function(attrs) {
+            console.log(arguments);
+            return;
         }
 
     });
