@@ -1,1 +1,7 @@
-<h1>Gist template</h1>
+<h1>User Gist page</h1>
+<section>
+    <ul>
+        <li><%= model.attributes.public %></li>
+        <li><%= model.attributes.created_at %></li>
+    </ul>
+</section>

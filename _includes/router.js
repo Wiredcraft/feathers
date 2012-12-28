@@ -6,10 +6,12 @@
         routes:{
             '': 'gists',
             '/discover': 'gists',
+            'gists/:id': 'gist',
+            'user': 'usergists',
+            'user/:id': 'usergist'
+
             // '/forked': 'forked',
             // '/starred': 'starred',
-            'gists/:id': 'gist',
-            'user': 'usergists'
         },
 
         initialize: function() {
@@ -38,7 +40,23 @@
                 // just opened this url need get the collection
                 new views.AppView({
                     collection: collections.Usergists,
-                    view: views.UserGist
+                    view: views.UserGists
+                });
+            }
+        },
+        
+        usergist: function() {
+            console.log('router usergist');
+            var model = collections.Usergist.completed();
+            if (model) {
+                // the exsit model in collection
+                new views.UserGist({model: model}).render();
+            } else {
+                // get the latest collection to find the model or just opened this url need get the collection
+                new views.AppView({
+                    collection: collections.Usergists,
+                    view: views.UserGist,
+                    param: param
                 });
             }
         },

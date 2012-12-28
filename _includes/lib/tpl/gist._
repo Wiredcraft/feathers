@@ -1,3 +1,4 @@
+<h1>Gist page</h1>
 <section>
     <h3>Gist : <%= model.id %></h3>
     <ul>

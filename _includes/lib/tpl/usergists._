@@ -1,6 +1,7 @@
-<h1>Gists template</h1>
+<h1>User Gists page</h1>
 
 <% _.each(collection, function(model){ %>
-        <h2><%= model.id %></h2></h2>
+    <a href='#user/<%= model.id %>' name='<%= model.id %>'>
+        <h2><%= model.id %></h2>
     </a>
 <% }); %>
