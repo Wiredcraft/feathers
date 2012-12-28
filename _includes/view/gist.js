@@ -8,7 +8,6 @@
         template: _.template($('script[name=gist]').html()),
         
         initialize: function() {
-            console.log('[v]item initializing')
             this.model.on( 'change', this.render, this );
         },
         

@@ -5,7 +5,7 @@
         
         routes:{
             '': 'gists',
-            '/discover': 'gists',
+            'discover': 'gists',
             // '/forked': 'forked',
             // '/starred': 'starred',
             'gists/:id': 'gist',
@@ -38,7 +38,7 @@
                 // just opened this url need get the collection
                 new views.AppView({
                     collection: collections.Usergists,
-                    view: views.UserGist
+                    view: views.UserGists
                 });
             }
         },

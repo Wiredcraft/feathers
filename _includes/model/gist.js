@@ -8,7 +8,6 @@
         defaults: {},
 
         initialize: function(){
-            console.log('initializing model[Gist]');
             // this.bind('change', function () {
             //     console.log('change', arguments);
             // });
