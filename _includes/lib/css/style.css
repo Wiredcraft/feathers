@@ -1,12 +1,6 @@
 /* General */
 html,
 body {
-  height: 100%;
-  text-align: center;
-  width: 100%;
-}
-
-body {
   background: #efefef;
   color: #000;
   font-size: 14px;
@@ -16,7 +10,6 @@ body {
 }
 
 header {
-  border-bottom: 1px dotted #eee;
 }
 
 a {

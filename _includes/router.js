@@ -44,9 +44,9 @@
             }
         },
         
-        usergist: function() {
+        usergist: function(param) {
             console.log('router usergist');
-            var model = collections.Usergist.completed();
+            var model = collections.Usergists.completed(param);
             if (model) {
                 // the exsit model in collection
                 new views.UserGist({model: model}).render();

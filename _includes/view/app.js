@@ -37,6 +37,7 @@
             } else {
                 // collection
                 if (this.collection.length) {
+                    console.log(this.collection);
                     // if the collection exsit
                     new this.view({collection: this.collection}).render();
                 } else {
