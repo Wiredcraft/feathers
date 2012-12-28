@@ -1,4 +1,4 @@
-(function(routers, views) {
+(function(views) {
     
     // Application
     // This is the top of application UI.
@@ -20,6 +20,7 @@
 
             options.collection.on( 'all', this.render, this );
             options.collection.fetch();
+
         },
 
         render: function() {
@@ -36,8 +37,6 @@
             } else {
                 // collection
                 if (this.collection.length) {
-                    console.log(this.collection);
-                    console.log('existing collection',this.collection.length);
                     // if the collection exsit
                     new this.view({collection: this.collection}).render();
                 } else {
@@ -51,4 +50,4 @@
 
     });
 
-}).call(this, app.routers, app.views);
+}).call(this, app.views);

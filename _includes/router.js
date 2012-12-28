@@ -9,7 +9,6 @@
             'gists/:id': 'gist',
             'user': 'usergists',
             'user/:id': 'usergist'
-
             // '/forked': 'forked',
             // '/starred': 'starred',
         },

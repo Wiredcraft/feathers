@@ -31,13 +31,7 @@
             
             $(this.el).html(msg);
 
-            $.fancybox( $(this.el), {
-                padding: 0,
-                closeBtn: false,
-                afterClose: function() {
-                    that.hideError();
-                }
-            })
+            $.fancybox( $(this.el))
         }
     });
 

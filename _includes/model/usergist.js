@@ -8,7 +8,6 @@
         defaults: {},
 
         initialize: function(){
-            console.log('initializing model[Usergist]');
             // this.bind('change', function () {
             //     console.log('change', arguments);
             // });
