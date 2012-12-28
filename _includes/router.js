@@ -32,6 +32,7 @@
         },
         
         usergists: function() {
+            console.log('router usergists collection');
             if (collections.Usergists.length) {
                 // the exsit collection 
                 new views.UserGists({collection: collections.Usergists}).render();
