@@ -44,7 +44,7 @@ The basic structure comes from [jekyll](https://github.com/mojombo/jekyll):
   `ui` : It includes our ui guideline, shows the design aspect of it.
 
 
-Files jekyll-boilerplate has:
+Files feathers has:
 
     _config.yml
     app.css
