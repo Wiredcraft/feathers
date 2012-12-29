@@ -13,6 +13,7 @@
 {% include collection/usergists.js %}
 {% include view/ui.js %}
 {% include view/header.js %}
+{% include view/footer.js %}
 {% include view/gist.js %}
 {% include view/gists.js %}
 {% include view/usergist.js %}
