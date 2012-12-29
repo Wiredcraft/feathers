@@ -37,7 +37,7 @@
                     views.UI.showError('cant find this model');
                 }
             } else {
-                console.log('>>>>> here, rendering appview');
+                console.log('rendering appview');
                 // collection
                 if (this.collection.length) {
                     console.log('rendering [AppView]', this.collection);

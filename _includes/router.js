@@ -47,31 +47,14 @@
                 });
             }
         },
-
-        // index : function () {
-        //   var articleList = new app.models.ArticleList();
-        //   new app.views.ArticleListView({collection : articleList});
-        //   articleList.fetch();
-        // },
         
         usergists: function() {
             console.log('[r] usergists');
-            
-            var Usergists = new app.collections.Usergists();
-            new views.UserGists({collection : Usergists});
-            Usergists.fetch();
-            
-            // console.log('collection: ' , collections.Usergists);
-            // if (collections.Usergists.length) {
-            //     // the exsit collection 
-            //     new views.UserGists({collection: collections.Usergists}).render();
-            // } else {
-                // just opened this url need get the collection
-                // new views.AppView({
-                //     collection: collections.Usergists,
-                //     view: views.UserGists
-                // });
-            // }
+            new views.AppView({
+                collection: collections.Usergists,
+                view: views.UserGists
+            });
+
         },
         
         usergist: function(param) {

@@ -6,7 +6,7 @@
 <% } %>
 
 
-<ul>
+<ul class='list'>
 <% _.each(collection, function(model){ %>
     <li>
       <a href='#user/<%= model.id %>' name='<%= model.id %>'>
