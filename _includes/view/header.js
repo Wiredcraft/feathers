@@ -14,12 +14,6 @@
         initialize: function() {
             this.render();
         },
-
-        select: function(item) {
-            // highlight tab
-            $('.nav li').removeClass('active');
-            $('.' + item).addClass('active');
-        },
         
         _search: function() {
             var temp = $('#search_username').attr('value');

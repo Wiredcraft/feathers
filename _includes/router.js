@@ -16,7 +16,7 @@
         initialize: function() {
             // ui part
             this.headerView = new views.Header();
-            
+            this.footerView = new views.Footer();
         },
 
         gists: function () {
