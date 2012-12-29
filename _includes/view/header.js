@@ -26,18 +26,39 @@
             console.log('search user:', temp);
             
             // GET /users/:user/gists
-            var url = _.compact(['#user']);
+            // var url = _.compact(['#user','aimeesohn']);
             
             // var urljoin = url.join('/');
             // console.log('url : ' , urljoin);
-            window.location.replace('http://localhost:4000/'+url);
+            // window.location.replace('http://localhost:4000/'+url);
+            // 
+            // Models.Usergist = new Usergist({
+            //     url : function() {
+            //         var prefix = 'https://api.github.com/users/';
+            //         return prefix + temp + '/gists';
+            //     }
+            // });
+            app.collections.Usergists = new app.collections.Usergists(temp);
+            
+            app.collections.Usergists.fetch({
+                success: function () {
+                    console.log(arguments, 'sssss')
+                },
+                error: function () {
+                    console.log(arguments, 'eeeeeeee')
+                }
+            });
+            
+            setTimeout(function(){
+                window.location.replace('http://localhost:4000/#user');
+            },8000);
+            
         },
         
         render: function() {
             $(this.el).html(this.template());
             return this;
         }
-
     });
 
 }).call(this, window.app.views);

@@ -3,8 +3,9 @@ server: true
 permalink: none
 url: "http://localhost:4000"
 apiurl: "https://api.github.com/gists"
+
 title: "feathers"
-description: "feathers"
+description: "Feathers is a jekyll boilerplate for building static clients for (JSON RESTful) APIs."
 exclude:
 - .gitignore
 - README.md

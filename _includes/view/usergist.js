@@ -9,7 +9,7 @@
         
         initialize: function() {
             console.log('[v]gist initializing');
-            this.model.on( 'change', this.render, this );
+            this.model.on( 'change', this.render, this );            
         },        
 
         render: function() {

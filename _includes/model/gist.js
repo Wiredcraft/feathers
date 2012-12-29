@@ -1,6 +1,5 @@
 (function(models) {
     
-    //Model
     models.Gist = Backbone.Model.extend({
         
         url: '{{site.apiurl}}',

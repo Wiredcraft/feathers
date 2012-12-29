@@ -1,20 +1,21 @@
 (function(models) {
-    
-    // Gist
+
     models.Usergist = Backbone.Model.extend({
         
-        urlRoot: 'https://api.github.com/users/aimeesohn/gists',
-
+        // urlRoot: 'https://api.github.com/users/aimeesohn/gists',
+        url: function(){
+            return 'https://api.github.com/users/'+this.get('id')+'/gists';
+        },
+        
         defaults: {},
 
         initialize: function(){
+            // console.log('[m] , initialize' , data );
             // this.bind('change', function () {
             //     console.log('change', arguments);
-            // });\
-             // new Usergist({url: 'https://api.github.com/users/'+data.user.login+'/gists'});
+            // });
         }
-
     });
-
+    
 }).call(this, window.app.models);
 

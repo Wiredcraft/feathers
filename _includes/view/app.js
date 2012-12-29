@@ -17,14 +17,16 @@
             // cache choosen
             this.view = options.view;
             this.param = options.param;
-
-            options.collection.on( 'all', this.render, this );
+            
+            // console.log('[init]AppView', options.collection);
+            
+            options.collection.on( 'all', this.render, this);
             options.collection.fetch();
 
         },
 
         render: function() {
-            
+            views.UI.loading();
             if (this.param) {
                 // model
                 var model = this.collection.completed(this.param);
@@ -35,9 +37,10 @@
                     views.UI.showError('cant find this model');
                 }
             } else {
+                console.log('>>>>> here, rendering appview');
                 // collection
                 if (this.collection.length) {
-                    console.log(this.collection);
+                    console.log('rendering [AppView]', this.collection);
                     // if the collection exsit
                     new this.view({collection: this.collection}).render();
                 } else {

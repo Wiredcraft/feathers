@@ -1,7 +1,17 @@
 <h1>User Gists page</h1>
+<% if (window.app.collections.Usergists ) { %> 
+    <h2><%= window.app.collections.Usergists.models[0].attributes.user.login %></h2>
+<% } else { %>
+    <h2>none</h2>
+<% } %>
 
+
+<ul>
 <% _.each(collection, function(model){ %>
-    <a href='#user/<%= model.id %>' name='<%= model.id %>'>
+    <li>
+      <a href='#user/<%= model.id %>' name='<%= model.id %>'>
         <h2><%= model.id %></h2>
-    </a>
+      </a>
+    </li>
 <% }); %>
+</ul>
