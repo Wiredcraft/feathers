@@ -1,7 +1,7 @@
 (function(models) {
     
-    //Gist Model
-    models.Gist = Backbone.Model.extend({
+    //PublicGist Model
+    models.PublicGist = Backbone.Model.extend({
         
         idAttribute: "id",
         

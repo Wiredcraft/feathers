@@ -8,6 +8,8 @@
 
 {% include model/gist.js %}
 {% include collection/gists.js %}
+{% include model/publicGist.js %}
+{% include collection/publicGists.js %}
 
 {% include view/app.js %}
 {% include view/header.js %}
@@ -17,6 +19,8 @@
 
 {% include view/gists/gist.js %}
 {% include view/gists/gists.js %}
+{% include view/publicGists/publicGist.js %}
+{% include view/publicGists/publicGists.js %}
 
 {% include router.js %}
 

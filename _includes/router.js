@@ -7,6 +7,8 @@
             ''          : 'gists',
             'gists'     : 'gists',
             'gists/:id' : 'gist',
+            'public'     : 'publicgists',
+            'public/:id' : 'publicgist',
             'user'      : 'usergists',
             'user/:id'  : 'usergist',
             '*actions'  : 'defaultAction'
@@ -44,6 +46,30 @@
             }
 
             this.appView.render('#main', this.gistView.render().el);
+
+        },
+
+        publicgists: function () {
+            
+            this.footerView.select('public');
+
+            if (!this.publicGistsView) {
+                this.publicGistsView = new views.PublicGists();
+            }
+
+            this.appView.render('#main', this.publicGistsView.render().el);
+
+        },
+
+        publicgist: function (id) {
+            
+            this.footerView.select('public');
+            
+            if (!this.publicGistView) {
+                this.publicGistView = new views.PublicGist({id : id});
+            }
+
+            this.appView.render('#main', this.publicGistView.render().el);
 
         },
 
