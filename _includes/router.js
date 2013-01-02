@@ -20,11 +20,10 @@
             // render header and footer
             this.headerView.render();
             this.footerView.render();
-
         },
 
         gists: function () {
-            
+            this.appView.loading();
             this.footerView.select('gists');
 
             if (!this.gistsView) {
@@ -32,7 +31,6 @@
             }
 
             this.appView.render('#main', this.gistsView.render().el);
-
         },
 
         gist: function (id) {

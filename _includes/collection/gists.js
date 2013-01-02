@@ -6,7 +6,7 @@
         model: models.Gist,
 
         url: '{{site.apiurl}}'
-    
+        
     });
 
 }).call(this, app.collections, app.models);

@@ -14,7 +14,6 @@
                 var tpl = that.template({ collection: collection.toJSON() });
                 $(that.el).html(tpl);
             });
-
             return this;
         }
 

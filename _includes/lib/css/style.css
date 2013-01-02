@@ -114,13 +114,12 @@ footer .nav li.active{
 
 /* loading option */
 
-#prompt{
+#prompt {
   height: 100%;
   left: 0 ;
   position: absolute;
   top: 0;
   width: 100%;
-  display: none;
 }
 
 #prompt:after {
@@ -138,7 +137,7 @@ footer .nav li.active{
   transition: opacity 10s linear;
 }
 
-#prompt .loading {
+#prompt .loader {
   background: white;
 /*  background: url('./images/plugin/fancybox_loading.gif') no-repeat center center;*/
   -moz-border-radius: 3px;
