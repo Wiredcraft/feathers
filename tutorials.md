@@ -78,4 +78,57 @@ Here are the APIs what we used for each model :
 * `usergist.js` : https://api.github.com/users/:username/gists
 
 
-### 
+###  Workflow
+
+In the router, it initializes and renders header and footer views first after this it renders specific models or collection accroding to the page. 
+
+Here, we will take a quick view of **gists**(rendering collectio view) part of router.js. 
+
+
+    gists: function () {
+        this.appView.loading();
+        
+        this.footerView.select('gists');
+
+        if (!this.gistsView) {
+            this.gistListView = new views.GistListView();
+        }
+
+        this.appView.render('#main', this.gistListView.render().el);
+    },
+    
+  
+We also set loading option in light way with pure css, we tried not to rely on plugins.  It renders loading option effect through a view named `app.js` also in `footer` view it can be selected specific tab of footer. 
+
+we get the proper model or collection and it is rendered by appView after all. First parameter is *id* which is used for rendering template and the second parameter is *view* which is used for rendering each view. 
+
+  
+
+	(function(views, collections) {
+
+		//Gists collection View
+    	views.GistListView = views.Collection.extend({
+        
+        	events: {
+        	},
+        	
+        	initialize: function() {
+            	this.template =  _.template($('#tpl-gists').html());
+            	this.collection = new collections.Gists();
+        	},
+        
+        	render: function() {
+            	var that = this;
+            	this.getCollection(function(collection) {
+                	var tpl = that.template({ collection: collection.toJSON() });
+                	$(that.el).html(tpl);
+            	});
+            	return this;
+        	}
+
+    	});
+
+	}).call(this, app.views, app.collections);
+	
+
+Fetching model and collection are fetched by **model.js** and **collection.js** , so each view is rendered by collection and model's extend view.
