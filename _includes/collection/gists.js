@@ -1,18 +1,12 @@
-(function(collections) {
+(function(collections, models) {
 
-    // Item Collection 
-    var Gists = Backbone.Collection.extend({
+    // Gists Collection 
+    collections.Gists = Backbone.Collection.extend({
         
-        model: app.models.Gist,
+        model: models.Gist,
 
-        url: '{{site.apiurl}}',
-
-        completed: function (id) {
-            return this.get(id);
-        }
+        url: '{{site.apiurl}}'
     
     });
 
-    collections.Gists = new Gists();
-
-}).call(this, window.app.collections);
+}).call(this, app.collections, app.models);

@@ -5,17 +5,18 @@
 {% include lib/js/backbone-min.js %}
 
 {% include init.js %}
-{% include view/app.js %}
+
 {% include model/gist.js %}
-{% include model/usergist.js %}
 {% include collection/gists.js %}
-{% include collection/usergists.js %}
-{% include view/ui.js %}
+
+{% include view/app.js %}
 {% include view/header.js %}
 {% include view/footer.js %}
-{% include view/gist.js %}
-{% include view/gists.js %}
-{% include view/usergist.js %}
-{% include view/usergists.js %}
+{% include view/collection.js %}
+{% include view/model.js %}
+
+{% include view/gists/gist.js %}
+{% include view/gists/gists.js %}
+
 {% include router.js %}
 

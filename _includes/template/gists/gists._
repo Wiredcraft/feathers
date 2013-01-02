@@ -1,5 +1,4 @@
 <ul class='list'>
-<h1>Gists page</h1>
 <% _.each(collection, function(model){ %>
   <li>  
     <a href='#gists/<%= model.id %>' name='<%= model.id %>'>

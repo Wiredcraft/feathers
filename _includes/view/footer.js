@@ -1,24 +1,22 @@
 (function(views) {
 
     // Header View
-    views.Footer = Backbone.View.extend({
+    views.Footer = views.AppView.extend({
         
-        el: '#footer',
-        
+        el : this.$('#footer'),
+
         events: {
-       
+        
         },
 
-        template: _.template($('script[name=footer]').html()),
-
-        initialize: function() {
-            this.render();
+        initialize: function () {
+            this.template = _.template($('#tpl-footer').html());
         },
 
-        select: function(item) {
+        select: function(className) {
             // highlight tab
-            $('.nav li').removeClass('active');
-            $('.' + item).addClass('active');
+            this.$('.nav li').removeClass('active');
+            this.$('.' + className).addClass('active');
         },
         
         render: function() {
@@ -28,4 +26,4 @@
 
     });
 
-}).call(this, window.app.views);
+}).call(this, app.views);

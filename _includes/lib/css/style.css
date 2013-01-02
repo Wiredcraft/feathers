@@ -87,22 +87,19 @@ footer .nav{
   height: 50px;
 }
 
+footer .nav li a{
+  color: #fff;
+  display: block;
+}
 footer .nav li{
   border-bottom: 1px solid #eee;
   -webkit-box-flex: 1;
   text-align: center;
-}
-
-footer .nav li a{
   background-color: #0c3e60;
-  color: #fff;
-  display: block;
   line-height: 50px;
   text-shadow: 0 1px 0 rgba(0,0,0,.2);
 }
-
-footer .nav li a:hover,
-footer .nav li a:active{
+footer .nav li.active{
   background-image: none;
   background-color: #0b3c5e;
   background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#061f31),color-stop(10%,#092e47),color-stop(65%,#0b3c5e),color-stop(100%,#0c3e60));
@@ -117,15 +114,16 @@ footer .nav li a:active{
 
 /* loading option */
 
-.base {
+#prompt{
   height: 100%;
   left: 0 ;
   position: absolute;
   top: 0;
   width: 100%;
+  display: none;
 }
 
-.base:after {
+#prompt:after {
   background-color: rgba(0,0,0,.5);
   content: '';
   height: 100%;
@@ -140,7 +138,7 @@ footer .nav li a:active{
   transition: opacity 10s linear;
 }
 
-.loading {
+#prompt .loading {
   background: white;
 /*  background: url('./images/plugin/fancybox_loading.gif') no-repeat center center;*/
   -moz-border-radius: 3px;

@@ -4,73 +4,51 @@
     var Router = Backbone.Router.extend({
         
         routes:{
-            '': 'gists',
-            'discover': 'gists',
-            'gists/:id': 'gist',
-            'user': 'usergists',
-            'user/:id': 'usergist'
-            // '/forked': 'forked',
-            // '/starred': 'starred',
+            ''          : 'gists',
+            'gists'     : 'gists',
+            'gists/:id' : 'gist',
+            'user'      : 'usergists',
+            'user/:id'  : 'usergist',
+            '*actions'  : 'defaultAction'
         },
 
         initialize: function() {
-            // ui part
             this.headerView = new views.Header();
             this.footerView = new views.Footer();
+            this.appView = new views.AppView();
+            
+            // render header and footer
+            this.headerView.render();
+            this.footerView.render();
+
         },
 
         gists: function () {
-            console.log('[r] gists');
-            if (collections.Gists.length) {
-                // the exsit collection 
-                new views.Gists({collection: collections.Gists}).render();
-            } else {
-                // just opened this url need get the collection
-                new views.AppView({
-                    collection: collections.Gists,
-                    view: views.Gists
-                });
-            }
-        },
+            
+            this.footerView.select('gists');
 
-        gist: function (param) {
-            var model = collections.Gists.completed(param);
-            if (model) {
-                // the exsit model in collection
-                new views.Gist({model: model}).render();
-            } else {
-                // get the latest collection to find the model or just opened this url need get the collection
-                new views.AppView({
-                    collection: collections.Gists,
-                    view: views.Gist,
-                    param: param
-                });
+            if (!this.gistsView) {
+                this.gistsView = new views.Gists();
             }
-        },
-        
-        usergists: function() {
-            console.log('[r] usergists');
-            new views.AppView({
-                collection: collections.Usergists,
-                view: views.UserGists
-            });
+
+            this.appView.render('#main', this.gistsView.render().el);
 
         },
-        
-        usergist: function(param) {
-            console.log('router usergist');
-            var model = collections.Usergists.completed(param);
-            if (model) {
-                // the exsit model in collection
-                new views.UserGist({model: model}).render();
-            } else {
-                // get the latest collection to find the model or just opened this url need get the collection
-                new views.AppView({
-                    collection: collections.Usergists,
-                    view: views.UserGist,
-                    param: param
-                });
+
+        gist: function (id) {
+            
+            this.footerView.select('gists');
+            
+            if (!this.gistView) {
+                this.gistView = new views.Gist({id : id});
             }
+
+            this.appView.render('#main', this.gistView.render().el);
+
+        },
+
+        defaultAction: function(actions) {
+            // No matching route
         }
     });
 
