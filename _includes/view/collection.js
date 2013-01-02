@@ -3,10 +3,12 @@
     // This is the top of Collection UI.
     views.Collection = Backbone.View.extend({
 
-        getCollection: function (callback) {
+        renderCollection: function (callback) {
+            var that = this;
             this.collection.fetch({
                 success: function(collection) {
-                    callback(collection);
+                    $(that.el).html( that.template({ collection: collection.toJSON() }) );
+                    callback($(that.el));
                 },
                 error: function(coll, res) {
                     if (res.status === 404) {

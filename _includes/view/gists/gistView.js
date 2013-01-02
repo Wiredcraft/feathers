@@ -8,14 +8,10 @@
             this.model =  new models.Gist({ id: options.id});
         },
         
-        render: function() {
-            var that = this;
-            this.getModel(function(model) {
-                var tpl = that.template({ model: model.toJSON() });
-                $(that.el).html(tpl);
-            });
-
-            return this;
+        render: function(callback) {
+           
+            this.renderModel(callback);
+            
         }
 
     });

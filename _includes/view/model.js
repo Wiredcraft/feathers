@@ -3,11 +3,13 @@
     // This is the top of Model UI.
     views.Model = Backbone.View.extend({
 
-        getModel: function (callback) {
+        renderModel: function (callback) {
+            var that = this;
             this.model.fetch({
                 silent: true,
                 success: function(model) {
-                    callback(model);
+                    $(that.el).html( that.template({ model: model.toJSON() }) );
+                    callback($(that.el));
                 },
                 error: function(coll, res) {
                     console.log(res,'eee');

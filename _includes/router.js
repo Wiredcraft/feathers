@@ -25,49 +25,61 @@
         },
 
         gists: function () {
-            // this.appView.loading();
+            this.appView.loading();
             this.footerView.select('gists');
 
-            if (!this.gistsView) {
+            if (!this.gistListView) {
                 this.gistListView = new views.GistListView();
             }
 
-            this.appView.render('#main', this.gistListView.render().el);
+            var that = this;
+            this.gistListView.render(function(elem) {
+                that.appView.render('#main', elem);
+            });
         },
 
         gist: function (id) {
-            
+            this.appView.loading();
             this.footerView.select('gists');
             
             if (!this.GistView) {
                 this.GistView = new views.GistView({id : id});
             }
 
-            this.appView.render('#main', this.GistView.render().el);
-
+            var that = this;
+            this.GistView.render(function(elem) {
+                that.appView.render('#main', elem);
+            });
+            
         },
 
         publicgists: function () {
-            
+            this.appView.loading();
             this.footerView.select('public');
 
             if (!this.PublicListView) {
                 this.PublicListView = new views.PublicListView();
             }
 
-            this.appView.render('#main', this.PublicListView.render().el);
+            var that = this;
+            this.PublicListView.render(function(elem) {
+                that.appView.render('#main', elem);
+            });
 
         },
 
         publicgist: function (id) {
-            
+            this.appView.loading();
             this.footerView.select('public');
             
             if (!this.PublicView) {
                 this.PublicView = new views.PublicView({id : id});
             }
 
-            this.appView.render('#main', this.PublicView.render().el);
+            var that = this;
+            this.PublicView.render(function(elem) {
+                that.appView.render('#main', elem);
+            });
 
         },
 
