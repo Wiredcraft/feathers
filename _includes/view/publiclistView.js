@@ -1,11 +1,11 @@
 (function(views, collections) {
 
-    //Gists collection View
-    views.Gists = views.Collection.extend({
+    //PublicGists collection View
+    views.PublicListView = views.Collection.extend({
         
         initialize: function() {
-            this.template =  _.template($('#tpl-gists').html());
-            this.collection = new collections.Gists();
+            this.template =  _.template($('#tpl-publicgists').html());
+            this.collection = new collections.PublicListView();
         },
         
         render: function() {
@@ -14,6 +14,7 @@
                 var tpl = that.template({ collection: collection.toJSON() });
                 $(that.el).html(tpl);
             });
+
             return this;
         }
 

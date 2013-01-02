@@ -1,6 +1,5 @@
 (function(views) {
 
-    // This is the top of application UI.
     views.AppView = Backbone.View.extend({
 
         el: '#app',

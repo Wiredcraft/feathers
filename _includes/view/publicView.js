@@ -1,11 +1,11 @@
 (function(views, models) {
 
     //PublicGist Model View
-    views.PublicGist = views.Model.extend({
+    views.PublicView = views.Model.extend({
         
         initialize: function(options) {
             this.template =  _.template($('#tpl-publicgist').html());
-            this.model =  new models.PublicGist({ id: options.id});
+            this.model =  new models.PublicView({ id: options.id});
         },
         
         render: function() {

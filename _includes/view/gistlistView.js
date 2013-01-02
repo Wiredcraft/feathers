@@ -1,11 +1,19 @@
 (function(views, collections) {
 
-    //PublicGists collection View
-    views.PublicGists = views.Collection.extend({
+    //Gists collection View
+    views.GistListView = views.Collection.extend({
+        
+        events: {
+            'click ul.list li a': 'listitem'
+        },
+        
+        listitem: function() {
+            console.log('slktjalkdjf;lkadjsglakd');  
+        },
         
         initialize: function() {
-            this.template =  _.template($('#tpl-publicgists').html());
-            this.collection = new collections.PublicGists();
+            this.template =  _.template($('#tpl-gists').html());
+            this.collection = new collections.Gists();
         },
         
         render: function() {
@@ -14,7 +22,6 @@
                 var tpl = that.template({ collection: collection.toJSON() });
                 $(that.el).html(tpl);
             });
-
             return this;
         }
 

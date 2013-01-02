@@ -17,10 +17,10 @@
 {% include view/collection.js %}
 {% include view/model.js %}
 
-{% include view/gists/gist.js %}
-{% include view/gists/gists.js %}
-{% include view/publicGists/publicGist.js %}
-{% include view/publicGists/publicGists.js %}
+{% include view/gistView.js %}
+{% include view/gistlistView.js %}
+{% include view/publicView.js %}
+{% include view/publiclistView.js %}
 
 {% include router.js %}
 

@@ -57,23 +57,25 @@ This is the middle of interaction between views, it renders proper view what sho
 
 #### models and collections with interacting Github API
 
-There are two different models, first model is one that named **gist.js** (render latest gists) and other model is named **usergist.js** (render user's gists).
 
+This example interacts with [Github API](http://developer.github.com), especially focused on [Github API:Gists](http://developer.github.com/v3/gists/) so we render the latest gists list and public gists lists, basically we add search bar to search and list specific users' gists history. We set few different models and it shows how easy it can be loaded :
 
-This example interacts with [Github API](http://developer.github.com), especially focused on [Github API:Gists](http://developer.github.com/v3/gists/) so we render the latest gists list and simply we add search bar to search and list specific users' gists history. 
+**Models** what we set : 
 
-* Models 
-	- gist.js
-    - usergist.js
-    
-    
-* Collections :
-	- gists.js
-	- usergists.js
+1. gist.js : rendering the latest gists
+2. publicGist.js : rendering the public gists
+3. user.js : rendering specific users gists
 
+**Collections** matched with these models the list below : 
+
+1. gists.js 
+2. publicGists.js
+3. users.js
 
 Here are the APIs what we used for each model : 
 
 * `gist.js` : https://api.github.com/gists
 * `usergist.js` : https://api.github.com/users/:username/gists
 
+
+### 

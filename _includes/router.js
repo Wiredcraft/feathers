@@ -25,25 +25,25 @@
         },
 
         gists: function () {
-            this.appView.loading();
+            // this.appView.loading();
             this.footerView.select('gists');
 
             if (!this.gistsView) {
-                this.gistsView = new views.Gists();
+                this.gistListView = new views.GistListView();
             }
 
-            this.appView.render('#main', this.gistsView.render().el);
+            this.appView.render('#main', this.gistListView.render().el);
         },
 
         gist: function (id) {
             
             this.footerView.select('gists');
             
-            if (!this.gistView) {
-                this.gistView = new views.Gist({id : id});
+            if (!this.GistView) {
+                this.GistView = new views.GistView({id : id});
             }
 
-            this.appView.render('#main', this.gistView.render().el);
+            this.appView.render('#main', this.GistView.render().el);
 
         },
 
@@ -51,11 +51,11 @@
             
             this.footerView.select('public');
 
-            if (!this.publicGistsView) {
-                this.publicGistsView = new views.PublicGists();
+            if (!this.PublicListView) {
+                this.PublicListView = new views.PublicListView();
             }
 
-            this.appView.render('#main', this.publicGistsView.render().el);
+            this.appView.render('#main', this.PublicListView.render().el);
 
         },
 
@@ -63,11 +63,11 @@
             
             this.footerView.select('public');
             
-            if (!this.publicGistView) {
-                this.publicGistView = new views.PublicGist({id : id});
+            if (!this.PublicView) {
+                this.PublicView = new views.PublicView({id : id});
             }
 
-            this.appView.render('#main', this.publicGistView.render().el);
+            this.appView.render('#main', this.PublicView.render().el);
 
         },
 

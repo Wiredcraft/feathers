@@ -1,7 +1,7 @@
 (function(views, models) {
 
     //Gist Model View
-    views.Gist = views.Model.extend({
+    views.GistView = views.Model.extend({
         
         initialize: function(options) {
             this.template =  _.template($('#tpl-gist').html());
