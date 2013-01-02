@@ -1,27 +1,11 @@
 auto: true
 server: true
 permalink: none
-baseurl: ""
+url: "http://localhost:4000"
+apiurl: "https://api.github.com/gists"
+
+title: "feathers"
+description: "Feathers is a jekyll boilerplate for building static clients for (JSON RESTful) APIs."
 exclude:
 - .gitignore
 - README.md
-- Makefile
-- Rakefile
-- component.json
-- components
-
-title: "Jekyll boilerplate"
-description: "Jekyll boilerplate"
-
-prose:
-  rooturl: "_posts"
-  metadata: 
-    _posts/articles: |
-      published: false
-      layout: article
-      title: Your Post Title
-      abstract: Short summary of your article.
-      author_twitter: johndoe
-      author: John Doe
-      categories:
-      - articles
