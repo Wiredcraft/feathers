@@ -1,5 +1,5 @@
 <ul class="nav">
     <li class="gists"><a href="#/gists">Gists</a></li>
-    <li class="forked"><a href="#/forked">Forked</a></li>
+    <li class="public"><a href="#/public">Public Gists</a></li>
     <li class="starred"><a href="#/starred">Starred</a></li>
 </ul>
