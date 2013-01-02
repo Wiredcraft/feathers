@@ -14,11 +14,13 @@
         },
         
         loading: function () {
-            $.fancybox.showLoading(); 
+            console.log('loading option');
+            $('#app .base').html('<div class="loading"><span>Loading ...</span></div>');
         },
 
         loaded: function () {
-            $.fancybox.hideLoading();
+            console.log('loaded');
+            $('#app .base').css('display','none');
         },
 
         showError: function (msg) {

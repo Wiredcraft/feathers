@@ -113,3 +113,44 @@ footer .nav li a:active{
   display: block;
   text-shadow: rgba(0,0,0,0.5) 0 -0.08em 0;
 }
+
+
+/* loading option */
+
+.base {
+  height: 100%;
+  left: 0 ;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.base:after {
+  background-color: rgba(0,0,0,.5);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  -webkit-transition: opacity 10s linear;
+  -o-transition: opacity 10s linear;
+  -moz-transition: opacity 10s linear;
+  transition: opacity 10s linear;
+}
+
+.loading {
+  background: white;
+/*  background: url('./images/plugin/fancybox_loading.gif') no-repeat center center;*/
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, .5);
+  margin: 100px auto;
+  padding: 100px; 
+  position: relative;
+  text-align: center;
+  width: 300px;
+  z-index: 2;
+}

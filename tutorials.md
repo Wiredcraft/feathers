@@ -17,9 +17,11 @@ We want to assume that **feathers** can handle model and collection in easy way,
 ### How to load the application
 	
 
-For easy to maintain, We separate model and collection and as you can see below the box, here is the way to load application. After initializing application it renders each views through the router.
+For easy to maintain, We separate model and collection and as you can see the box below, here is the way to load application. 
 
 	init.js -> router.js -> app.js -> MVC
+
+After initializing application it renders each views through the router.
 	
 
 

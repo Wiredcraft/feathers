@@ -1,7 +1,7 @@
 (function(views) {
     
     // Application
-    // This is the top of application UI.
+    // Interaction between views 
     views.AppView = Backbone.View.extend({
 
         el: '#app',
@@ -26,12 +26,14 @@
         },
 
         render: function() {
-            views.UI.loading();
+            // views.UI.loading();
+            
             if (this.param) {
                 // model
                 var model = this.collection.completed(this.param);
                 if (model) {
                     new this.view({model: model}).render();
+                    views.UI.loaded();
                 } else {
                     // no this model
                     views.UI.showError('cant find this model');
@@ -43,13 +45,14 @@
                     console.log('rendering [AppView]', this.collection);
                     // if the collection exsit
                     new this.view({collection: this.collection}).render();
+                    views.UI.loaded();
                 } else {
                     // no data
                     views.UI.showError('cant find any data');
                 }
             }
             // loaded
-            views.UI.loaded();
+            // views.UI.loaded();
         }
 
     });
