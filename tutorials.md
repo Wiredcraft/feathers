@@ -100,7 +100,7 @@ Here, we will take a quick view of **gists**(rendering collectio view) part of r
   
 We also set loading option in light way with pure css, we tried not to rely on plugins.  It renders loading option effect through a view named `app.js` also in `footer` view it can be selected specific tab of footer. 
 
-we get the proper model or collection and it is rendered by appView after all. First parameter is *id* which is used for rendering template and the second parameter is *view* which is used for rendering each view. 
+We get the proper model or collection and it is rendered by appView after all. First parameter is *id* which is used for rendering template and the second parameter is *view* which is used for rendering each view. 
 
   
 
