@@ -9,7 +9,6 @@
         },
 
         initialize: function() {
-            
         },
 
         loading: function () {
