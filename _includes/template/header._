@@ -1,3 +1,3 @@
-<label id='search_user' for='search_user'>Search user</label>
+<label for='search_user'>Search user</label>
 <input type='text' name='search_username' id='search_username' value='' placeholder='Enter a user' />
 <a id='search' href='javascript:;'>Search</a>
