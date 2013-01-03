@@ -82,26 +82,60 @@ Here are the APIs what we used for each model :
 
 In the router, it initializes and renders header and footer views first after this it renders specific models or collection accroding to the page. 
 
-Here, we will take a quick view of **gists**(rendering collectio view) part of router.js. 
+Here, we will take a quick view how the gists' list rendered. (rendering collection view), e.g. **gists** part of application.
 
 
-    gists: function () {
-        this.appView.loading();
-        
-        this.footerView.select('gists');
 
-        if (!this.gistsView) {
-            this.gistListView = new views.GistListView();
-        }
+`router.js` : router
 
-        this.appView.render('#main', this.gistListView.render().el);
-    },
+
+	(function(routers, views, collections) {
+		var Router = Backbone.Router.extend({
+
+    	routes:{
+        	'gists'     : 'gists',
+        	…
+    	},
     
-  
+    	initialize: function() {
+       		this.headerView = new views.Header();
+    		this.footerView = new views.Footer();
+        	this.appView = new views.AppView();
+        
+        	// render header and footer
+        	this.headerView.render();
+        	this.footerView.render();
+    	},
+            
+    	gists: function () {
+			this.appView.loading();
+        	this.footerView.select('gists');
+
+        	if (!this.gistListView) {
+            	this.gistListView = new views.GistListView();
+        	}
+
+        	var that = this;
+        	this.gistListView.render(function(elem) {
+            	that.appView.render('#main', elem);
+        	});
+    	}, 
+    	…
+    
+    	routers = new Router();
+    	Backbone.history.start();
+
+	}).call(this, app.routers, app.views, app.collections);
+
+
+From router starts, it will take few seconds since it loads items from github, so you may see a **loading** event, `this.appView.loading();`,  
+
 We also set loading option in light way with pure css, we tried not to rely on plugins.  It renders loading option effect through a view named `app.js` also in `footer` view it can be selected specific tab of footer. 
 
 We get the proper model or collection and it is rendered by appView after all. First parameter is *id* which is used for rendering template and the second parameter is *view* which is used for rendering each view. 
 
+
+`gistlistView.js` : view
   
 
 	(function(views, collections) {
@@ -131,4 +165,49 @@ We get the proper model or collection and it is rendered by appView after all. F
 	}).call(this, app.views, app.collections);
 	
 
+`collection.js` : view 
+
 Fetching model and collection are fetched by **model.js** and **collection.js** , so each view is rendered by collection and model's extend view.
+
+
+	(function(views) {
+    
+    views.Collection = Backbone.View.extend({
+
+        renderCollection: function (callback) {
+            var that = this;
+            this.collection.fetch({
+                success: function(collection) {
+                    $(that.el).html( that.template({ collection: 	collection.toJSON() }) );
+                    callback($(that.el));
+                },
+                error: function(coll, res) {
+                    if (res.status === 404) {
+                        // TODO: handle 404 Not Found
+                    } else if (res.status === 500) {
+                        // TODO: handle 500 Internal Server Error
+                    }
+                }
+            });
+        }
+
+    });
+
+	}).call(this, app.views);
+
+
+
+`gists.js` : collection(model)
+
+	(function(collections, models) {
+
+    	// Gists Collection 
+    	collections.Gists = Backbone.Collection.extend({
+        
+        	model: models.Gist,
+
+        	url: '{{site.apiurl}}'
+        
+    	});
+
+	}).call(this, app.collections, app.models);

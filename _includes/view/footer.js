@@ -3,10 +3,10 @@
     // Header View
     views.Footer = views.AppView.extend({
         
-        // el : this.$('#footer'),
+        el : this.$('#footer'),
 
         events: {
-            'click #footer .nav li a' : '_loader'
+            'click ul li a' : '_loader'
         },
 
         initialize: function () {
@@ -15,8 +15,8 @@
 
         _loader: function() {
             console.log('_loader');
-            this.appView = new views.AppView();
-            this.appView.loading();
+            // this.appView = new views.AppView();
+            // this.appView.loading();
         },
 
         select: function(className) {
@@ -26,7 +26,7 @@
         },
         
         render: function() {
-            $('#footer').html(this.template());
+            this.$el.html(this.template());
             return this;
         }
 

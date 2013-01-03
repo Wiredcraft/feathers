@@ -127,7 +127,7 @@ footer .nav li.active{
   content: '';
   height: 100%;
   left: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -144,7 +144,7 @@ footer .nav li.active{
   -webkit-border-radius: 3px;
   border-radius: 3px;
   box-shadow: 0 1px 20px rgba(0, 0, 0, .5);
-  margin: 200px auto;
+  margin: 20% auto;
   padding: 100px; 
   position: relative;
   text-align: center;
