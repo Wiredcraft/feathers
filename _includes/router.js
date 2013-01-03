@@ -4,14 +4,14 @@
     var Router = Backbone.Router.extend({
         
         routes:{
-            ''          : 'gists',
-            'gists'     : 'gists',
-            'gists/:id' : 'gist',
-            'public'     : 'publicgists',
-            'public/:id' : 'publicgist',
-            'user'      : 'usergists',
-            'user/:id'  : 'usergist',
-            '*actions'  : 'defaultAction'
+            ''             : 'gists',
+            'gists'        : 'gists',
+            'gists/:id'    : 'gist',
+            'public'       : 'publicgists',
+            'public/:id'   : 'publicgist',
+            'users/:user'  : 'usergists',
+            'users/:id'    : 'usergist',
+            '*actions'     : 'defaultAction'
         },
 
         initialize: function() {
@@ -81,6 +81,31 @@
                 that.appView.render('#main', elem);
             });
 
+        },
+
+        usergists: function(name) {
+            this.appView.loading();
+            if (!this.UserListView) {
+                this.UserListView = new views.UserListView({name : name});
+            }
+
+            var that = this;
+            this.UserListView.render(function(elem) {
+                that.appView.render('#main', elem);
+            });
+        },
+
+        usergist: function(id) {
+            // cant be use,this api was not restful
+            this.appView.loading();
+            if (!this.UserView) {
+                this.UserView = new views.UserView({id : id});
+            }
+
+            var that = this;
+            this.UserView.render(function(elem) {
+                that.appView.render('#main', elem);
+            });
         },
 
         defaultAction: function(actions) {
