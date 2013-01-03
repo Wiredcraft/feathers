@@ -190,7 +190,11 @@ In the router, it knows that the application should get through the `model.js` o
             var that = this;
             this.collection.fetch({
                 success: function(collection) {
-                    $(that.el).html( that.template({ collection: 	collection.toJSON() }) );
+                    if (collection.length) {
+                        $(that.el).html( that.template({ collection: collection.toJSON() }) );
+                    } else {
+                        $(that.el).html( 'Can\'t find the data you want.' );
+                    }
                     callback($(that.el));
                 },
                 error: function(coll, res) {
@@ -202,7 +206,6 @@ In the router, it knows that the application should get through the `model.js` o
                 }
             });
         }
-
     });
 
 	}).call(this, app.views);
@@ -217,27 +220,19 @@ This view initializes model and template here we can handle the specific events 
 
 	(function(views, collections) {
 
-		//Gists collection View
     	views.GistListView = views.Collection.extend({
         
-        	events: {
-        	},
-        	
+        	events: {},
+        
         	initialize: function() {
             	this.template =  _.template($('#tpl-gists').html());
             	this.collection = new collections.Gists();
         	},
         
-        	render: function() {
-            	var that = this;
-            	this.getCollection(function(collection) {
-                	var tpl = that.template({ collection: collection.toJSON() });
-                	$(that.el).html(tpl);
-            	});
-            	return this;
-        	}
-
-    	});
+        	render: function(callback) {
+            	this.renderCollection(callback);
+			}
+    });
 
 	}).call(this, app.views, app.collections);
 	
