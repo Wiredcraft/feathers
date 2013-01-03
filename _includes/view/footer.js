@@ -3,6 +3,8 @@
     // Footer View
     views.Footer = views.AppView.extend({
 
+        el : this.$('#footer'),
+        
         events: {
 
         },
