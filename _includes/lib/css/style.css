@@ -1,4 +1,5 @@
 /* General */
+html,
 body {
   font-size: 12px;
 }
@@ -57,7 +58,7 @@ a {
   padding: 10px;
 }
 
-#main ul.list li a{
+#main ul.list li a {
   padding: 10px;
   display: block;
 }
@@ -95,7 +96,8 @@ footer .nav li a{
   color: #fff;
   display: block;
 }
-footer .nav li{
+
+footer .nav li {
   border-bottom: 1px solid #eee;
   -webkit-box-flex: 1;
   text-align: center;

@@ -14,15 +14,8 @@ This will show you how **feathers** can handle your MVC framework, every time yo
 We want to assume that **feathers** can handle model and collection in easy way, and make sure it can interact with real API what we build or public API so we will show you how it works through this example. 
 
 
-### Workflow
-	
-
-For easy to maintain, We separate model and collection and as you can see the box below, here is the way to load application. 
-
-	init.js -> router.js -> app.js -> MVC
-
-After initializing application it renders each views through the router.
-	
+### Workflow	
+After initializing application it renders each views through the router. **init.js** -> **router.js**
 
 #### init.js
 
@@ -53,11 +46,7 @@ Application renders partial views through the router to show the result. It gets
 
 This is the middle of interaction between views, it renders proper view what should be rendered. 
 
-
-router.js - 
-
 #### models and collections with interacting Github API
-
 
 This example interacts with [Github API](http://developer.github.com), especially focused on [Github API:Gists](http://developer.github.com/v3/gists/) so we render the latest gists list and public gists lists, basically we add search bar to search and list specific users' gists history. We set few different models and it shows how easy it can be loaded :
 
@@ -65,13 +54,13 @@ This example interacts with [Github API](http://developer.github.com), especiall
 
 1. gist.js : rendering the latest gists
 2. publicGist.js : rendering the public gists
-3. user.js : rendering specific users gists
+3. userGist.js : rendering specific users gists
 
 **Collections** matched with these models the list below : 
 
 1. gists.js 
 2. publicGists.js
-3. users.js
+3. usersGists.js
 
 Here are the APIs what we used for each model : 
 
