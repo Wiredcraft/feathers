@@ -120,7 +120,6 @@ footer .nav li.active{
   position: absolute;
   top: 0;
   width: 100%;
-  display: none;
 }
 
 #prompt:after {
@@ -145,7 +144,7 @@ footer .nav li.active{
   -webkit-border-radius: 3px;
   border-radius: 3px;
   box-shadow: 0 1px 20px rgba(0, 0, 0, .5);
-  margin: 100px auto;
+  margin: 200px auto;
   padding: 100px; 
   position: relative;
   text-align: center;
