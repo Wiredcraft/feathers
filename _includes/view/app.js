@@ -14,17 +14,17 @@
 
         loading: function () {
             console.log('loading option');
-            $('#app #prompt').html('<div class="loader"><span>Loading ...</span></div>');
+            this.$('#prompt').html('<div class="loader"><span>Loading ...</span></div>');
         },
 
         loaded: function () {
             console.log('loaded');
-            $('#app #prompt').css('display','none');
+            this.$('#prompt').css('display','none');
         },
 
         render: function (id, sHtml) {
             this.$(id).html(sHtml);
-            // this.loaded();
+            this.loaded();
         }
 
     });

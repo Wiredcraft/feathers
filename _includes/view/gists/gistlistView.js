@@ -16,13 +16,10 @@
             this.collection = new collections.Gists();
         },
         
-        render: function() {
-            var that = this;
-            this.getCollection(function(collection) {
-                var tpl = that.template({ collection: collection.toJSON() });
-                $(that.el).html(tpl);
-            });
-            return this;
+        render: function(callback) {
+           
+            this.renderCollection(callback);
+            
         }
 
     });
