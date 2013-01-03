@@ -14,7 +14,7 @@ This will show you how **feathers** can handle your MVC framework, every time yo
 We want to assume that **feathers** can handle model and collection in easy way, and make sure it can interact with real API what we build or public API so we will show you how it works through this example. 
 
 
-### How to load the application
+### Workflow
 	
 
 For easy to maintain, We separate model and collection and as you can see the box below, here is the way to load application. 
@@ -23,7 +23,6 @@ For easy to maintain, We separate model and collection and as you can see the bo
 
 After initializing application it renders each views through the router.
 	
-
 
 #### init.js
 
@@ -55,6 +54,8 @@ Application renders partial views through the router to show the result. It gets
 This is the middle of interaction between views, it renders proper view what should be rendered. 
 
 
+router.js - 
+
 #### models and collections with interacting Github API
 
 
@@ -78,15 +79,30 @@ Here are the APIs what we used for each model :
 * `usergist.js` : https://api.github.com/users/:username/gists
 
 
-###  Workflow
+### Setting up application
 
 In the router, it initializes and renders header and footer views first after this it renders specific models or collection accroding to the page. 
 
-Here, we will take a quick view how the gists' list rendered. (rendering collection view), e.g. **gists** part of application.
+Here, we will take a quick view how the gists' list(collection) rendered, e.g. **gists** part of application.
 
 
 
-`router.js` : router
+	  C	 	   router.js (controller)
+    _______________|___________________________________________________
+     		       |
+		         app.js
+	  V            | 
+	          collection.js --- gistlistView.js 
+	___________________________________|_______________________________
+		 							   |
+						   		     gists.js (collection)
+	  M 							   |
+	 						   	      gist.js (model)
+
+
+	
+#### router.js 
+**router** : *../_includes/router.js*
 
 
 	(function(routers, views, collections) {
@@ -130,44 +146,40 @@ Here, we will take a quick view how the gists' list rendered. (rendering collect
 
 From router starts, it will take few seconds since it loads items from github, so you may see a **loading** event, `this.appView.loading();`,  
 
-We also set loading option in light way with pure css, we tried not to rely on plugins.  It renders loading option effect through a view named `app.js` also in `footer` view it can be selected specific tab of footer. 
+This is loaded in light way with pure css(not to rely on plugins) It renders through a view named `app.js` also in `footer` view it can be selected specific tab of footer. 
 
-We get the proper model or collection and it is rendered by appView after all. First parameter is *id* which is used for rendering template and the second parameter is *view* which is used for rendering each view. 
+`gistListView` renders a correct data and elements send to `appView`. At first `gistListView` gets data and renders template and then callsback element contained. After this `appView` renders function then posts to the page to should be rendered. We will keep looking into this view, `app.js` :
 
+#### app.js
+**view** : *../_includes/view/app.js*
 
-`gistlistView.js` : view
-  
+	(function(views) {
 
-	(function(views, collections) {
+    views.AppView = Backbone.View.extend({
 
-		//Gists collection View
-    	views.GistListView = views.Collection.extend({
+        el: '#app',
+
+        loading: function () { ... },
+
+        loaded: function () { ... },
         
-        	events: {
-        	},
-        	
-        	initialize: function() {
-            	this.template =  _.template($('#tpl-gists').html());
-            	this.collection = new collections.Gists();
-        	},
-        
-        	render: function() {
-            	var that = this;
-            	this.getCollection(function(collection) {
-                	var tpl = that.template({ collection: collection.toJSON() });
-                	$(that.el).html(tpl);
-            	});
-            	return this;
-        	}
+        render: function (id, sHtml) {
+            this.$(id).html(sHtml);
+            this.loaded();
+        }
 
-    	});
+    });
 
-	}).call(this, app.views, app.collections);
-	
+	}).call(this, app.views);
 
-`collection.js` : view 
 
-Fetching model and collection are fetched by **model.js** and **collection.js** , so each view is rendered by collection and model's extend view.
+We can get the proper model or collection since it is rendered by appView after all so we can easily understand what `appView` is exactly doing between those views and router, it is a kind of middle controller also it exchanges those common function. Let's take a close look at other views`collection.js` and `gistlistView.js` below:
+
+
+#### collection.js 
+**view** : *../_includes/view/collection.js*
+
+In the router, it knows that the application should get through the `model.js` of `collection.js` so able to fetch model or collection so it rendered `collection.js` in this case. 
 
 
 	(function(views) {
@@ -197,7 +209,42 @@ Fetching model and collection are fetched by **model.js** and **collection.js** 
 
 
 
-`gists.js` : collection(model)
+#### gistlistView.js
+** view ** : *../_includes/view/gists/gistlistView.js*
+
+This view initializes model and template here we can handle the specific events of handling view. 
+  
+
+	(function(views, collections) {
+
+		//Gists collection View
+    	views.GistListView = views.Collection.extend({
+        
+        	events: {
+        	},
+        	
+        	initialize: function() {
+            	this.template =  _.template($('#tpl-gists').html());
+            	this.collection = new collections.Gists();
+        	},
+        
+        	render: function() {
+            	var that = this;
+            	this.getCollection(function(collection) {
+                	var tpl = that.template({ collection: collection.toJSON() });
+                	$(that.el).html(tpl);
+            	});
+            	return this;
+        	}
+
+    	});
+
+	}).call(this, app.views, app.collections);
+	
+#### gists.js 
+**model(collection)** : *../_includes/collection/gists.js*
+
+This is a collection but as we know this is a collection of its model, so it is come from model-`Gist` so here we may need to take a look at its model too. 
 
 	(function(collections, models) {
 
@@ -211,3 +258,78 @@ Fetching model and collection are fetched by **model.js** and **collection.js** 
     	});
 
 	}).call(this, app.collections, app.models);
+	
+	
+#### gist.js 
+**model** : *../_includes/model/gist.js*
+    
+    models.Gist = Backbone.Model.extend({
+     
+     	idAttribute: "id",
+     
+     	urlRoot: '{{site.apiurl}}',
+     	     
+     	defaults: {
+         	public  : '',
+         	created_at   : '',
+         	updated_at : '',
+         	html_url    : ''
+     	},
+		… 
+    });
+
+As a default setting, we have the idAttribute, url location and defaults values.
+
+
+#### Template
+**template**:../_includes/template/
+
+	|-------------------------------------------
+	| ./_includes/template/
+	|     			   |-footer._
+	|     			   |-header._
+	|				   | … 
+	|      			    \__________________
+	|
+	| ./_includes/template/gists
+	|     			   		 |-gist._
+	|     			   		 |-gists._
+	|      			    	  \__________________
+	|  … 
+	|-------------------------------------------
+
+This is the way how to create the template file and those files should be included in `_includes/templates.html` then it will be rendered automatically. Here is the example below:
+
+	<script id='tpl-header' type='text/html'>{% include template/header._ %}</script>
+
+#### Themes and plugins
+**css**:../_includes/lib/css/
+
+	|-------------------------------------------
+	| ./_includes/lib/css/
+	|     			   |-normalize.css
+	|     			   |-style.css
+	|     			   | … 
+	|      			    \__________________
+	|
+	|-------------------------------------------
+
+**plugins**:../_includes/lib/js/
+
+	|-------------------------------------------
+	| ./_includes/lib/js/
+	|     			   |-backbone-min.js
+	|     			   |-jquety-1.8.2-min.js
+	|     			   |-underscore-min.js 
+	|				   | … 
+	|      			    \__________________
+	|
+	| ./_includes/lib/js/plugin/
+	|     			   		|-fancybox.js
+	|     			   		|-transtion.js
+	|				   		| … 
+	|      			    	 \__________________
+	|  	
+	|-------------------------------------------
+
+ 
