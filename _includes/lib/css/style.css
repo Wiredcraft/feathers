@@ -1,6 +1,7 @@
 /* General */
 body {
-    font-size: 12px;
+  font-size: 12px;
+  overflow: hidden;
 }
 
 ul,
@@ -56,10 +57,12 @@ a {
 #main section {
   padding: 10px;
 }
-
+#main ul.list li a{
+  padding: 10px;
+  display: block;
+}
 #main ul.list li {
   border-bottom: 1px solid #eee;
-  padding: 10px;
 }
 
 #main ul.list li:last-child {
@@ -107,7 +110,6 @@ footer .nav li.active{
   background-image: linear-gradient(top,#061f31,#092e47 10%,#0b3c5e 65%,#0c3e60);
   -webkit-box-shadow: #092e47 0 0 .25em inset;
   box-shadow: #092e47 0 0 .25em inset;
-  display: block;
   text-shadow: rgba(0,0,0,0.5) 0 -0.08em 0;
 }
 #search{
@@ -167,14 +169,15 @@ footer .nav li.active{
 
 #prompt .loader {
   background: white;
-/*  background: url('./images/plugin/fancybox_loading.gif') no-repeat center center;*/
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   box-shadow: 0 1px 20px rgba(0, 0, 0, .5);
-  margin: 200px auto;
+  margin: 0 auto;
   padding: 100px; 
   position: relative;
+  top: 50%;
+  margin-top: -100px;
   text-align: center;
   width: 300px;
   z-index: 2;

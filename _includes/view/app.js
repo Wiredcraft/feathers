@@ -9,16 +9,15 @@
         },
 
         initialize: function() {
+        
         },
 
         loading: function () {
-            console.log('loading option');
-            this.$('#prompt').html('<div class="loader"><span>Loading ...</span></div>');
+            this.$('#prompt').show().html('<div class="loader"><span>Loading ...</span></div>');
         },
 
         loaded: function () {
-            console.log('loaded');
-            this.$('#prompt').css('display','none');
+            this.$('#prompt').hide();
         },
 
         render: function (id, sHtml) {
