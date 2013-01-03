@@ -4,11 +4,7 @@
     views.GistListView = views.Collection.extend({
         
         events: {
-            'click ul.list li a': 'listitem'
-        },
-        
-        listitem: function() {
-            console.log('slktjalkdjf;lkadjsglakd');  
+            
         },
         
         initialize: function() {

@@ -8,11 +8,14 @@
             this.model.fetch({
                 silent: true,
                 success: function(model) {
-                    $(that.el).html( that.template({ model: model.toJSON() }) );
+                    if (model) {
+                        $(that.el).html( that.template({ model: model.toJSON() }) );
+                    } else {
+                        $(that.el).html( 'Can\'t find the data you want.' );
+                    }
                     callback($(that.el));
                 },
                 error: function(coll, res) {
-                    console.log(res,'eee');
                     if (res.status === 404) {
                         // TODO: handle 404 Not Found
                     } else if (res.status === 500) {

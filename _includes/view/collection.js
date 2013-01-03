@@ -7,7 +7,11 @@
             var that = this;
             this.collection.fetch({
                 success: function(collection) {
-                    $(that.el).html( that.template({ collection: collection.toJSON() }) );
+                    if (collection.length) {
+                        $(that.el).html( that.template({ collection: collection.toJSON() }) );
+                    } else {
+                        $(that.el).html( 'Can\'t find the data you want.' );
+                    }
                     callback($(that.el));
                 },
                 error: function(coll, res) {
