@@ -1,0 +1,9 @@
+<section>
+    <h3>Gist : <%= model.id %></h3>
+    <ul>
+        <li>public: <%= model.public %></li>
+        <li>created_at: <%= model.created_at %></li>
+        <li>updated_at: <%= model.updated_at %></li>
+    </ul>
+    <a href='<%= model.html_url %>' target='_blank'>Link</a>
+</section>

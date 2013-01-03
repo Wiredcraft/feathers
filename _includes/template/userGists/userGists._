@@ -1,0 +1,9 @@
+<ul class='list'>
+<% _.each(collection, function(model){ %>
+  <li>  
+    <a href='#gists/<%= model.id %>' name='<%= model.id %>'>
+        <h2><%= model.id %></h2>
+    </a>
+  </li> 
+<% }); %>
+</ul>
