@@ -3,6 +3,8 @@
     // Footer View
     views.Footer = views.AppView.extend({
 
+        el : this.$('#footer'),
+        
         events: {
 
         },
@@ -18,7 +20,7 @@
         },
         
         render: function() {
-            $('#footer').html(this.template());
+            this.$el.html(this.template());
             return this;
         }
 
