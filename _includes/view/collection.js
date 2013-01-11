@@ -6,20 +6,28 @@
         renderCollection: function (callback) {
             var that = this;
             this.collection.fetch({
-                success: function(collection) {
-                    if (collection.length) {
-                        $(that.el).html( that.template({ collection: collection.toJSON() }) );
-                    } else {
-                        $(that.el).html( 'Can\'t find the data you want.' );
-                    }
-                    callback($(that.el));
+                success: function(res) {
+                    
+                    var collection = res.toJSON();
+                    $(that.el).html( that.template({ collection: collection }) );
+
+                    callback($(that.el), collection);
+                    
                 },
                 error: function(coll, res) {
-                    if (res.status === 404) {
-                        // TODO: handle 404 Not Found
-                    } else if (res.status === 500) {
-                        // TODO: handle 500 Internal Server Error
+                    
+                    switch (res.status) {
+                        case 403:
+                            app.routers.navigate('/', {trigger: true});
+                            break;
+                        case 404:
+                            // TODO: handle 404 Not Found
+                            break;
+                        case 500:
+                            // TODO: handle 500 Internal Server Error
+                            break;
                     }
+
                 }
             });
         }

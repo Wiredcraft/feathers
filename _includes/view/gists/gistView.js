@@ -5,7 +5,7 @@
         
         initialize: function(options) {
             this.template =  _.template($('#tpl-gist').html());
-            this.model =  new models.Gist({ id: options.id});
+            this.model =  new models.Gist({ id: options.arg});
         },
         
         render: function(callback) {

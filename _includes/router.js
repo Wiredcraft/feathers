@@ -1,4 +1,4 @@
-(function(routers, views, collections) {
+(function(views, collections) {
   
     // Router
     var Router = Backbone.Router.extend({
@@ -25,87 +25,38 @@
         },
 
         gists: function () {
-            this.appView.loading();
-            this.footerView.select('gists');
-
-            if (!this.gistListView) {
-                this.gistListView = new views.GistListView();
-            }
-
-            var that = this;
-            this.gistListView.render(function(elem) {
-                that.appView.render('#main', elem);
-            });
+            
+            this.appView.viewMaker(this, 'gists','GistListView', '#main');
+        
         },
 
         gist: function (id) {
-            this.appView.loading();
-            this.footerView.select('gists');
-            
-            if (!this.GistView) {
-                this.GistView = new views.GistView({id : id});
-            }
 
-            var that = this;
-            this.GistView.render(function(elem) {
-                that.appView.render('#main', elem);
-            });
+            this.appView.viewMaker(this, 'gists', 'GistView', '#main', arguments[0]);
             
         },
 
         publicgists: function () {
-            this.appView.loading();
-            this.footerView.select('public');
-
-            if (!this.PublicListView) {
-                this.PublicListView = new views.PublicListView();
-            }
-
-            var that = this;
-            this.PublicListView.render(function(elem) {
-                that.appView.render('#main', elem);
-            });
+            
+            this.appView.viewMaker(this, 'public', 'PublicListView', '#main');
 
         },
 
         publicgist: function (id) {
-            this.appView.loading();
-            this.footerView.select('public');
             
-            if (!this.PublicView) {
-                this.PublicView = new views.PublicView({id : id});
-            }
-
-            var that = this;
-            this.PublicView.render(function(elem) {
-                that.appView.render('#main', elem);
-            });
+            this.appView.viewMaker(this, 'public', 'PublicView', '#main', arguments[0]);
 
         },
 
         usergists: function(name) {
-            this.appView.loading();
-            if (!this.UserListView) {
-                this.UserListView = new views.UserListView({name : name});
-            }
+                
+            this.appView.viewMaker(this, null, 'UserListView', '#main', arguments[0]);
 
-            var that = this;
-            this.UserListView.render(function(elem) {
-                that.appView.render('#main', elem);
-            });
         },
 
         usergist: function(id) {
-            // cant be use,this api was not restful
-            this.appView.loading();
-            if (!this.UserView) {
-                this.UserView = new views.UserView({id : id});
-            }
-
-            var that = this;
-            this.UserView.render(function(elem) {
-                that.appView.render('#main', elem);
-            });
+            // cant be use,this api was not restful,link to gists/:id
+            this.appView.viewMaker(this, null, 'UserView', '#main', arguments[0]);
         },
 
         defaultAction: function(actions) {
@@ -113,7 +64,7 @@
         }
     });
 
-    routers = new Router();
+    app.routers = new Router();
     Backbone.history.start();
 
-}).call(this, app.routers, app.views, app.collections);
+}).call(this, app.views, app.collections);

@@ -5,7 +5,7 @@
         
         initialize: function(options) {
             this.template =  _.template($('#tpl-usergists').html());
-            this.collection = new collections.Usergists(options.name);
+            this.collection = new collections.Usergists(options.arg);
         },
         
         render: function(callback) {

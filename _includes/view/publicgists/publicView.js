@@ -5,7 +5,7 @@
         
         initialize: function(options) {
             this.template =  _.template($('#tpl-publicgist').html());
-            this.model =  new models.PublicGist({ id: options.id});
+            this.model =  new models.PublicGist({ id: options.arg});
         },
         
         render: function(callback) {
