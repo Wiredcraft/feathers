@@ -1,8 +1,7 @@
 (function(views) {
     
-    // This is the top of Model UI.
+    // core 
     views.Model = Backbone.View.extend({
-
         getData: function (callback) {
             var that = this;
             this.model.fetch({
@@ -26,15 +25,13 @@
                 }
             });
         },
-
         renderModel: function (callback) {
             var that = this;
             that.getData(function (data) {
                 $(that.el).html( that.template({ model: data }) );
                 callback($(that.el));
             });
-        }
-
+        }s
     });
 
 }).call(this, app.views);

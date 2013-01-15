@@ -12,12 +12,10 @@
         initialize: function () {
             this.template = _.template($('#tpl-header').html());
         },
-
         render: function() {
             this.$el.html(this.template());
             return this;
         }
-
     });
 
 }).call(this, app.views);

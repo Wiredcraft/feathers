@@ -6,13 +6,11 @@
         renderCollection: function (callback) {
             var that = this;
             this.collection.fetch({
-                success: function(res) {
-                    
+                success: function(res) {         
                     var collection = res.toJSON();
                     $(that.el).html( that.template({ collection: collection }) );
 
                     callback($(that.el), collection);
-                    
                 },
                 error: function(coll, res) {
                     
@@ -27,11 +25,9 @@
                             // TODO: handle 500 Internal Server Error
                             break;
                     }
-
                 }
             });
         }
-
     });
 
 }).call(this, app.views);

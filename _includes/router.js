@@ -19,12 +19,10 @@
         },
 
         main: function () {
-            
             this.appView.viewMaker.call(this, {
                 viewName: 'MainView', // view name 
                 elemId :'#main' // element Id 
             })
-        
         },
 
         defaultAction: function(actions) {
