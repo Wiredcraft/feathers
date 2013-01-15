@@ -26,37 +26,65 @@
 
         gists: function () {
             
-            this.appView.viewMaker(this, 'gists','GistListView', '#main');
+            this.appView.viewMaker.call(this, {
+                viewName: 'GistListView',
+                elemId :'#main',
+                selectId: 'gists'
+            })
         
         },
 
         gist: function (id) {
 
-            this.appView.viewMaker(this, 'gists', 'GistView', '#main', arguments[0]);
+            this.appView.viewMaker.call(this, {
+                viewName: 'GistView',
+                elemId :'#main',
+                arg: id,
+                selectId: 'gists'
+            })
             
         },
 
         publicgists: function () {
-            
-            this.appView.viewMaker(this, 'public', 'PublicListView', '#main');
+
+            this.appView.viewMaker.call(this, {
+                viewName: 'PublicListView',
+                elemId :'#main',
+                selectId: 'public'
+            })
 
         },
 
         publicgist: function (id) {
             
-            this.appView.viewMaker(this, 'public', 'PublicView', '#main', arguments[0]);
+            this.appView.viewMaker.call(this, {
+                viewName: 'PublicView',
+                elemId :'#main',
+                arg: id,
+                selectId: 'public'
+            })
 
         },
 
         usergists: function(name) {
                 
-            this.appView.viewMaker(this, null, 'UserListView', '#main', arguments[0]);
+            this.appView.viewMaker.call(this, {
+                viewName: 'UserListView',
+                elemId :'#main',
+                arg: name
+            })
 
         },
 
         usergist: function(id) {
+            
             // cant be use,this api was not restful,link to gists/:id
-            this.appView.viewMaker(this, null, 'UserView', '#main', arguments[0]);
+            this.appView.viewMaker.call(this, {
+                viewName: 'UserView',
+                elemId :'#main',
+                arg: id
+            })
+
         },
 
         defaultAction: function(actions) {

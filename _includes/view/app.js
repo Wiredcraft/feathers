@@ -12,27 +12,43 @@
         
         },
 
-
-        viewMaker: function (route, selectId, viewName, elemId, arg) {
-            // view render controller
-            this.loading();
+        viewMaker: function (config) {
+            var that = this,
+                arg = config.arg,
+                elemId = config.elemId,
+                viewName = config.viewName,
+                selectId = config.selectId;
             
-            if (!route[viewName]) {
-                route[viewName] = arg ? new views[viewName]({arg : arg}) : new views[viewName]();
-            }
-            route[viewName].render(function(elem) {
-                
-                if (selectId) {
-                    // tab highlight 
-                    route.footerView.select(selectId);
-                }
-                route.appView.render(elemId, elem);
+            // loading
+            this.appView.loading();
+            
 
+            if (arg) {
+                // model view
+                // insurance the old view could be remove
+                // if (route[viewName]) { 
+                //     route[viewName].remove();
+                // };
+                this[viewName] = new views[viewName]({arg : arg});
+            } else {
+                // collection view
+                this[viewName] = new views[viewName]();
+            }
+            
+            // tab highlight 
+            if (selectId) {
+                this.footerView.select(selectId);
+            }
+
+            this[viewName].render(function(elem) {
+                // loading
+                that.appView.loaded();
+                that.appView.render(elemId, elem);
             });
         },
 
         loading: function () {
-            this.$('#prompt').show().html('<div class="loader"><span>Loading ...</span></div>');
+            this.$('#prompt').show();
         },
 
         loaded: function () {
