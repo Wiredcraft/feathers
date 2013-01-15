@@ -12,26 +12,25 @@ layout: default
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Css -->
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{{site.url}}/app.css" />
 
     <!-- Icons -->
     <link rel='shortcut icon' href='{{site.url}}/images/favicon.ico'>
     <link rel='apple-touch-icon' href='{{site.url}}/images/apple-touch-icon.png'>
     <link rel='apple-touch-icon' sizes='72x72' href='{{site.url}}/images/apple-touch-icon-72x72.png'>
     <link rel='apple-touch-icon' sizes='114x114' href='{{site.url}}/images/apple-touch-icon-114x114.png'>
-    
-    
+
   </head>
   <body>
-    <div id='app'>
-      {{content}}
-    </div>
+    
+    {{content}}
+    
+    {% include templates.html %}
     
     <!-- JS -->
-    {% include templates.html %}
-    <script src="{{site.url}}app.js"></script>
-    {% include google-analytics %}
+    <script src="{{site.url}}/app.js"></script>
     
+    <!-- google analytics -->
+    <!-- {% include lib/js/plugin/google-analytics %} -->
   </body>
 </html>
