@@ -11,7 +11,7 @@
                     callback(res.toJSON());
                 },
                 error: function(coll, res) {
-                    console.log('errrr', arguments,res.status);
+                    console.log('error', arguments,res.status);
                     switch (res.status) {
                         case 403:
                             app.routers.navigate('/', {trigger: true});

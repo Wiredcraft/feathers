@@ -16,13 +16,11 @@
             var that = this,
                 arg = config.arg,
                 elemId = config.elemId,
-                viewName = config.viewName,
-                selectId = config.selectId;
+                viewName = config.viewName;
             
             // loading
             this.appView.loading();
             
-
             if (arg) {
                 // model view
                 // insurance the old view could be remove
@@ -33,11 +31,6 @@
             } else {
                 // collection view
                 this[viewName] = new views[viewName]();
-            }
-            
-            // tab highlight 
-            if (selectId) {
-                this.footerView.select(selectId);
             }
 
             this[viewName].render(function(elem) {
