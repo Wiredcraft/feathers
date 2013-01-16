@@ -16,7 +16,7 @@ a {
 }
 
 /* loading option */
-#prompt {
+#overlay {
   height: 100%;
   left: 0 ;
   position: absolute;
@@ -24,7 +24,7 @@ a {
   width: 100%;
 }
 
-#prompt:after {
+#overlay:after {
   background-color: rgba(0,0,0,.5);
   content: '';
   height: 100%;
@@ -39,7 +39,7 @@ a {
   transition: opacity 10s linear;
 }
 
-#prompt .loader {
+#overlay .loader {
   background: white;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;

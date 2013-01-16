@@ -6,12 +6,14 @@
 
 {% include init.js %}
 
+{% include model/testModel.js %}
+
 {% include view/app.js %}
 {% include view/header.js %}
 {% include view/footer.js %}
 {% include view/collection.js %}
 {% include view/model.js %}
-{% include view/main.js %}
+{% include view/testView.js %}
 
 {% include router.js %}
 

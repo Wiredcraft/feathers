@@ -31,7 +31,7 @@
                 $(that.el).html( that.template({ model: data }) );
                 callback($(that.el));
             });
-        }s
+        }
     });
 
 }).call(this, app.views);

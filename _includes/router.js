@@ -4,7 +4,7 @@
     var Router = Backbone.Router.extend({
         
         routes:{
-            ''             : 'main',
+            ''             : 'random',
             '*actions'     : 'defaultAction'
         },
 
@@ -18,9 +18,9 @@
             this.footerView.render();
         },
 
-        main: function () {
+        random: function () {
             this.appView.viewMaker.call(this, {
-                viewName: 'MainView', // view name 
+                viewName: 'testView', // view name 
                 elemId :'#main' // element Id 
             })
         },
