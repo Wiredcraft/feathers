@@ -16,19 +16,33 @@ describe('carcass-auth-example', function() {
       });
     })
 
-    it('should not access /member', function(done) {
-      $.get('/member', function(data) {
-        data.should.be.a('object');
-        data.should.have.property('login', false);
-        done();
+    it('should not get model', function(done) {
+      $.get('/model', function(data) {
+          should.false('This should not happen.')
+      })
+      .error(function(error) { 
+          error.status.should.eql(403);
+          done();
       });
+    })
+    
+    it('should not modify model', function(done) {
+        $.post('/model', function(data) {
+            should.false('This should not happen.')
+        })
+        .error(function(error) {
+            error.status.should.eql(403);
+            done();
+        });
     })
 
     it('should not access /logout', function(done) {
       $.get('/logout', function(data) {
-        data.should.be.a('object');
-        data.should.have.property('logout', 'ok');
-        done();
+          should.false('This should not happen.')
+      })
+      .error(function(error) {
+          error.status.should.eql(403);
+          done();
       });
     });
   });
@@ -43,20 +57,33 @@ describe('carcass-auth-example', function() {
     });
     
     it('should be able to login', function(done) {
-      $.get('/login', function(data) {
+      $.post('/login', {
+          username: 'any',
+          password: 'any'
+      }, function(data) {
         data.should.be.a('object');
         data.should.have.property('login', 'ok');
         done();
       });
     });
     
-    it('should be able to access /member', function(done) {
-      $.get('/member', function(data) {
+    it('should be able to get model', function(done) {
+      $.get('/model', function(data) {
         data.should.be.a('object');
-        data.should.have.property('login', true);
+        data.should.have.property('id', 'id');
+        data.should.have.property('name', 'name');
         done();
       })
     });
+    
+    it('should be ablt to modify model', function(done) {
+        $.post('/model', { id: 'm', name: 'm' }, function(data) {
+           data.should.be.a('object');
+           data.should.have.property('id', 'm');
+           data.should.have.property('name', 'm');
+           done(); 
+        });
+    })
     
     it('should be able to logout', function(done) {
       $.get('/logout', function(data) {
@@ -66,12 +93,15 @@ describe('carcass-auth-example', function() {
       });
     });
     
-    it('should not be able to access /member after logout', function(done) {
-      $.get('/member', function(data) {
-        data.should.be.a('object');
-        data.should.have.property('login', false);
-        done();
-      });
+    it('should not be able to access /model after logout', function(done) {
+      $.get('/model', function(data) {
+          should.false('This should not happen.');
+      })
+      .error(function(error) {
+          error.status.should.eql(403);
+          done();
+      })
+      ;
     });
   });
 })
