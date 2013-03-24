@@ -36,16 +36,128 @@ Beyond the regular Jekyll files, most of the interesting code (that is Marionett
 * For avoiding a conflict with jekyll, we implement this file to under the `_includes` directory.
 
 ## Getting started
+As we are using grunt to automate things, such as change less files to css, make templates and so on.
 
+So you should change the foler to `_includes`, and key in `npm install` to install the related dependency.
+
+After installed, you just need to simple key in `grunt`, it will keep detecting the files and update the files automatically.
+
+*Do not try to put `node_modules` into the root directory, otherwise will conflict with jekyll.
 ### Add a template
 
-This rely on grunt, switch to `_includes/templates/template`
+1. Switch to `_includes/templates/template`
 
-1. Save html as a file, the file name would be the template name under JST, such as template: JST['login']
-1. Press npm install in terminal
-1. Press grunt in terminal,you could see the changes in templates.js
+2. Save html as a file, the file name would be the template name under JST, such as template: JST['login']
 
-### Adding an application (*aka* Marionnette sub-app)
+*If the grunt is running, after save, you could see the changes in templates.js
+
+### Add an application (*aka* Marionnette sub-app)
+
+1. Switch to `_includes/apps`
+2. Write the code like this
+
+   ```	
+		App.module('ErrorPage', function(){
+		
+		    var ErrorView = Backbone.Marionette.ItemView.extend({
+		        id: 'errorpage',
+		        template: JST['errorPage']
+		    });
+		    
+		    // To prevent starting with the entire app
+		    this.startWithParent = false;
+		
+		    this.addInitializer(function(){
+		        var errorView = new ErrorView();
+		        App.main.show(errorView);
+		    });
+		});
+	```
+3. Add to `assets.js`
+   
+   ```	
+      {% include apps/errorpage.js %}            
+   ```	
+
+### Add css
+1. Switch to `_includes/less`
+2. In file `colors.less` , you could define some color variable for global use
+3. In file `elements.less`, gives you some less functions to use.
+
+````
+	@import 'elements.less';
+	@import 'colors.less';
+	
+````
+Normally you may want to add these to your new less file,to use their colors and funtions.
+
+Same as template, if the grunt is running, after save, you could see the changes in `assets.css`.
+
+### Add router
+1. Switch to `_includes/core/`
+2. In `controller.js`, add the router as you want under `appRoutes`. 
+	
+	````
+		appRoutes: {
+	         '' : 'profile',
+	        'profile' : 'profile',
+	        'login' : 'login',
+	        '*action' : 'errorpage'
+	    }
+	````
+3.Dont forget to add related actions. In actions you could get data and start the sub applications.
+
+	````
+		 this.profile = function() {
+	        var profile =  new App.Model.Profile();
+	
+	        $.when(profile.get()).then(function (oProfile) {
+	            App.startSubApp('Profile', { 
+	                profile : oProfile
+	            });
+	
+	            // router change
+	            self.router.navigate('profile');
+	        });
+	    };
+	````
+
+### About view
+In fact, we have already seen in this section of the 'Add an application'.
+
+But it's necessary to high light in there that the reason why we use marionette since it extended the view much better.
+
+Normally,there are three frequent changes in the area on a single page, so we added it to regions as a container.
+
+````
+ 	App.addRegions({
+        header: '#header',
+        message: '#message',
+        main: '#main'
+    });
+````
+If the page need to change, we just replace the inside view will be fine, since the old inside view can be clear promptly.
+
+We could add a layout in one region, and this layout has its own region, and each of region could add a view.
+
+````
+  var Layout = Backbone.Marionette.Layout.extend({
+        id: 'servers',
+
+        template: JST['mainLayout'],
+
+        regions: {
+            menu: '#menu',
+            content: '#content'
+        }
+    });
+````
+And there are kinds of marionette views we could use.
+
+* [**Marionette.ItemView**](https://github.com/marionettejs/backbone.marionette/blob/master/docs/marionette.itemview.md): A view that renders a single item
+* [**Marionette.CollectionView**](https://github.com/marionettejs/backbone.marionette/blob/master/docs/marionette.collectionview.md): A view that iterates over a collection, and renders individual `ItemView` instances for each model
+* [**Marionette.CompositeView**](https://github.com/marionettejs/backbone.marionette/blob/master/docs/marionette.compositeview.md): A collection view and item view, for rendering leaf-branch/composite model hierarchies
+* [**Marionette.View**](https://github.com/marionettejs/backbone.marionette/blob/master/docs/marionette.view.md): The base View type that other Marionette views extend from (not intended to be used directly)
 
 
 ### Run the damn thing
