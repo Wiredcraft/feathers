@@ -105,6 +105,7 @@ Same as template, if the grunt is running, after save, you could see the changes
 	        '*action' : 'errorpage'
 	    }
 	````
+
 3.Dont forget to add related actions. In actions you could get data and start the sub applications.
 
 	````
