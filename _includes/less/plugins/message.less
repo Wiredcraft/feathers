@@ -1,0 +1,36 @@
+@import '../elements.less';
+@import '../colors.less';
+/* Messages */
+#message {
+  margin: 0 auto;
+  max-width: 920px;
+  text-align: left;
+  p {
+    background: @grey;
+    color: #fff;
+    display: block;
+    padding: 15px;
+    .rounded(3px);
+    &.normal {
+      background: @blue;
+    }
+    &.error {
+      background: @red;
+    }
+    &.success {
+      background: @green;
+    }
+    .close {
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      display: block;
+      float: right;
+      padding: 1px 10px;
+      .rounded(3px);
+      &:hover {
+        background: rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+      }
+    }
+  }
+}
