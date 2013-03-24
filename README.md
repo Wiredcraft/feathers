@@ -56,7 +56,7 @@ After installed, you just need to simple key in `grunt`, it will keep detecting 
 1. Switch to `_includes/apps`
 2. Write the code like this
 
-   ```	
+       ```	
 		App.module('ErrorPage', function(){
 		
 		    var ErrorView = Backbone.Marionette.ItemView.extend({
@@ -72,23 +72,23 @@ After installed, you just need to simple key in `grunt`, it will keep detecting 
 		        App.main.show(errorView);
 		    });
 		});
-	```
+	````
 3. Add to `assets.js`
    
-   ```	
+   ````
       {% include apps/errorpage.js %}            
-   ```	
+   ````	
 
 ### Add css
 1. Switch to `_includes/less`
 2. In file `colors.less` , you could define some color variable for global use
 3. In file `elements.less`, gives you some less functions to use.
 
-````
+    ````
 	@import 'elements.less';
 	@import 'colors.less';
-	
-````
+    ````
+    
 Normally you may want to add these to your new less file,to use their colors and funtions.
 
 Same as template, if the grunt is running, after save, you could see the changes in `assets.css`.
@@ -98,7 +98,7 @@ Same as template, if the grunt is running, after save, you could see the changes
 2. In `controller.js`, add the router as you want under `appRoutes`. 
 	
 	````
-		appRoutes: {
+	    appRoutes: {
 	         '' : 'profile',
 	        'profile' : 'profile',
 	        'login' : 'login',
@@ -106,10 +106,10 @@ Same as template, if the grunt is running, after save, you could see the changes
 	    }
 	````
 
-3.Dont forget to add related actions. In actions you could get data and start the sub applications.
+3. Dont forget to add related actions. In actions you could get data and start the sub applications.
 
 	````
-		 this.profile = function() {
+	    this.profile = function() {
 	        var profile =  new App.Model.Profile();
 	
 	        $.when(profile.get()).then(function (oProfile) {
@@ -122,7 +122,7 @@ Same as template, if the grunt is running, after save, you could see the changes
 	        });
 	    };
 	````
-
+	
 ### About view
 In fact, we have already seen in this section of the 'Add an application'.
 
