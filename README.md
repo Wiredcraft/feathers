@@ -38,7 +38,7 @@ Beyond the regular Jekyll files, most of the interesting code (that is Marionett
 ## Getting started
 As we are using grunt to automate things, such as change less files to css, make templates and so on.
 
-So you should change the foler to `_includes`, and key in `npm install` to install the related dependency.
+So you should change the folder to `_includes`, and key in `npm install` to install the related dependency.
 
 After installed, you just need to simple key in `grunt`, it will keep detecting the files and update the files automatically.
 
