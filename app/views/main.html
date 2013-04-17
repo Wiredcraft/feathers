@@ -1,11 +1,30 @@
-<ul>
-  <li>
-    <a href="#/cities" >Cities</a>
-  </li>
-  <li>
-    <a href="#/countries" >Countries</a>
-  </li>
-  <li>
-    <a href="#/regions" >Regions</a>
-  </li>
-</ul>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <!--Sidebar content-->
+    <div class="span2">
+      <ul>
+        <li>
+          <a href="#/cities" >By location</a>
+        </li>
+      </ul>
+    </div>
+    <!--Body content-->
+    <div class="span3">
+      <input ng-model="query">
+      <ul>
+        <li ng-repeat="region in regions | filter:query" >
+          <a href="#/regions/{{region.id}}" >{{region.name}}</a>
+        </li>
+        <li ng-repeat="country in countries | filter:query" >
+          <a href="#/countries/{{country.name}}" >{{country.name}}</a>
+        </li>
+        <li ng-repeat="city in cities" >
+          <a href="#/city/{{city.country}}/{{city.city}}" >{{city.city}}</a>
+        </li>
+        <li ng-repeat="country in countries | filter:query" >
+          <a href="#/countries/{{country.name}}" >{{country.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
