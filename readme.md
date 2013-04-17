@@ -1,9 +1,7 @@
 ## starting with angular.js
 
 * npm install
-* run `node server.js` 
-* [flatiron](http://flatironjs.org/)
-* [node-ecstatic](https://github.com/jesusabdullah/node-ecstatic) : This is a simple static file server middleware that works with both Express and Flatiron
+* run `npm start` or `grunt` to start the client server
 
 
 ## Directory Layout

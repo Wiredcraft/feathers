@@ -1,6 +1,5 @@
 .*
 !.gitignore
-!.gitmodules
 
-/_site
-/components
+node_modules
+node_modules/*
