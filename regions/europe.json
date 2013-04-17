@@ -1,0 +1,9 @@
+{
+    "cities": [
+        "London",
+        "Praha",
+        "Paris"
+    ], 
+    "id": "region-europe",
+    "name": "Europe"
+}

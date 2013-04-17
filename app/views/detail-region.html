@@ -1,0 +1,9 @@
+<h1>{{region.name}}</h1>
+
+<p>ID: {{region.id}}</p>
+
+<ul class="region-thumbs">
+  <li ng-repeat="city in region.cities">
+    <a ng-src="{{city}}" ng-click="setImage(city)">{{city}}</a>
+  </li>
+</ul>

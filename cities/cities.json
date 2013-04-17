@@ -1,0 +1,12 @@
+[
+    {
+        "country": "China", 
+        "id": "bj", 
+        "city": "Beijing"
+    },
+    {
+        "country": "China", 
+        "id": "sh", 
+        "city": "Shanghai"
+    }
+]

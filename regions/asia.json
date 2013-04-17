@@ -1,0 +1,9 @@
+{
+    "cities": [
+        "Beijing",
+        "Shanghai",
+        "Seoul"
+    ], 
+    "id": "region-asia",
+    "name": "Asia"
+}
