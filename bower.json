@@ -2,6 +2,7 @@
   "name": "feather",
   "version": "0.0.1",
   "devDependencies": {
-    "normalize-css": "1.x"
+    "normalize-css": "2.x",
+    "moment": "2.0.0"
   }
 }
