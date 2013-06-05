@@ -1,0 +1,7 @@
+{
+  "name": "feather",
+  "version": "0.0.1",
+  "devDependencies": {
+    "normalize-css": "1.x"
+  }
+}
