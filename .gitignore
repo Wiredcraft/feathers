@@ -1,5 +1,6 @@
 .*
 !.gitignore
+!.bowerrc
 !.gitmodules
 
 /_site
