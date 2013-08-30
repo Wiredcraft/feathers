@@ -12,6 +12,7 @@ angular.module( 'Devops.navbar', [])
             url: '#/jobs'
         }];
 
+        // active or deactive menu style
         $scope.$watch('$state.current', function(aft, bef) {
             if(aft === bef) return;
             $scope.activeElement = aft.name.split('.')[0];
