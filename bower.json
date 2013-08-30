@@ -1,6 +1,6 @@
 {
-  "name": "ng-boilerplate",
-  "version": "0.3.0",
+  "name": "Devops",
+  "version": "0.0.1",
   "devDependencies": {
     "angular": "~1.0.7",
     "angular-mocks": "~1.0.7",

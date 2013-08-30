@@ -11,6 +11,12 @@ module.exports = {
   compile_dir: 'bin',
 
   /**
+     * This will change the api port from localhost to api.devo.ps when running
+     * `grunt product`.
+     */
+  "dev_port": 3000,
+
+  /**
    * This is a collection of file patterns that refer to our app code (the
    * stuff in `src/`). These file paths are used in the configuration of
    * build tasks. `js` is all project javascript, less tests. `ctpl` contains
@@ -22,7 +28,7 @@ module.exports = {
   app_files: {
     js: [ 'src/**/*.js', '!src/**/*.spec.js' ],
     jsunit: [ 'src/**/*.spec.js' ],
-    
+
     coffee: [ 'src/**/*.coffee', '!src/**/*.spec.coffee' ],
     coffeeunit: [ 'src/**/*.spec.coffee' ],
 
