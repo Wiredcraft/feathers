@@ -1,8 +1,0 @@
-.*
-!.gitignore
-!.bowerrc
-!.gitmodules
-
-/_site
-/components
-bower_components/
