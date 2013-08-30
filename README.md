@@ -1,6 +1,6 @@
 # Feathers
 
-![Monit](https://github.com/Wiredcraft/feathers/raw/master/extra/feather.png)
+![Monit](https://f.cloud.github.com/assets/1183541/1055973/89f9ec26-114b-11e3-9c3d-d091f956aec9.png)
 
 ## Why feather?
 
