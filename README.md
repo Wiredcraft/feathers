@@ -4,7 +4,7 @@
 
 ## Why feather?
 
-`feather` is a project build on top of
+`Feathers` is a project build on top of
 [ngBoilderplate](https://github.com/joshdmiller/ng-boilerplate) by
 [joshdmiller](https://github.com/joshdmiller). This project has a lot of best
 practice to code with AngularJS. We just add some new feature to meet our own
