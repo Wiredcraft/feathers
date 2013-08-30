@@ -11,8 +11,7 @@ module.exports = {
   compile_dir: 'bin',
 
   /**
-     * This will change the api port from localhost to api.devo.ps when running
-     * `grunt product`.
+     * This will change the port to the app server port
      */
   "dev_port": 3000,
 
@@ -29,14 +28,11 @@ module.exports = {
     js: [ 'src/**/*.js', '!src/**/*.spec.js' ],
     jsunit: [ 'src/**/*.spec.js' ],
 
-    coffee: [ 'src/**/*.coffee', '!src/**/*.spec.coffee' ],
-    coffeeunit: [ 'src/**/*.spec.coffee' ],
-
     atpl: [ 'src/app/**/*.tpl.html' ],
     ctpl: [ 'src/common/**/*.tpl.html' ],
 
     html: [ 'src/index.html' ],
-    less: 'src/less/main.less'
+    scss: [ "src/scss/**/*.{scss,sass}" ]
   },
 
   /**
@@ -62,6 +58,8 @@ module.exports = {
       'vendor/angular-ui-utils/modules/route/route.js'
     ],
     css: [
+    ],
+    img: [
     ]
   },
 };
