@@ -1,0 +1,312 @@
+@import 'compass/css3';
+@import 'compass/utilities/general/clearfix';
+@import 'compass/typography/text/ellipsis';
+
+/* import css modules */
+@import 'font';
+
+/* MIXINS */
+
+@font-face {
+	font-family: 'icons';
+	src:url('font/icons.eot');
+	src:url('font/icons.eot?#iefix') format('embedded-opentype'),
+		url('font/icons.woff') format('woff'),
+		url('font/icons.ttf') format('truetype'),
+		url('font/icons.svg#Icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin icon {
+	font-family: 'icons';
+  font-size: 110%;
+	font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+@mixin box {
+  @include border-radius($radius);
+  @include box-shadow(rgba(0, 0, 0, 0.1) 0 1px 0);
+  background: #fff;
+  border: 1px solid $border;
+  margin-bottom: $gutter;
+  .header {
+    @include clearfix;
+  	padding: $gutter;
+  	h1,
+  	h2,
+  	h3 {
+  	  margin: 0;
+  	}
+  }
+  .body {
+  	padding: ($gutter/2) $gutter;
+  }
+  .footer {
+    border-top: 1px solid tint($border, 20%);
+  	padding: $gutter;
+  }
+  .section {
+    background: tint($background, 80%);
+    border-top: 1px solid tint($border, 40%);
+    padding: $gutter/2 $gutter;
+    .body,
+    .footer {
+      padding: $gutter/2 0;
+    }
+  }
+}
+
+@mixin button($color: $primary, $light: false) {
+  @if $light == true {
+    $font: $color;
+    $color: tint($color, 90%);
+    @include text-shadow(rgba(255, 255, 255, 0.2) 0 1px 0);
+  }
+  @else {
+    $font: #fff;
+    $color: $color;
+    @include text-shadow(rgba(0, 0, 0, 0.2) 1px 1px 0);
+  }
+  @include border-radius($radius);
+  @include background(linear-gradient(tint($color, 20%), $color));
+  border: 1px solid shade($color, 10%);
+  color: tint($font, 20%);
+  font-weight: bold;
+  padding: ($gutter/4) $gutter;
+  &:hover {
+  	@include box-shadow(rgba(0, 0, 0, 0.05) 0 2px 0);
+  	border-color: shade($color, 20%);
+    @include background(linear-gradient(tint($color, 25%), tint($color, 5%)));
+  	color: $font;
+  	text-decoration: none;
+  }
+  &:active,
+  &.active {
+    @include background(linear-gradient(shade($color, 5%), tint($color, 10%)));
+    border-color: shade($color, 15%);
+    @include box-shadow(rgba(0, 0, 0, 0.08) 0 0 3px 1px inset);
+    color: $font;
+  }
+}
+
+/* GENERAL */
+
+body {
+  background: $background;
+  color: $base;
+  font: $font;
+  line-height: 140%;
+  position: relative;
+}
+
+h1,
+h2,
+h3 {
+  color: $highlight;
+  font-weight: normal;
+  margin: 0 0 $gutter;
+}
+
+a {
+  color: $links;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:visited {
+  	color: $links;
+  }
+}
+
+/* FORMS */
+
+form {
+  line-height: 140%;
+  padding: 0;
+}
+
+form .field {
+	@include clearfix;
+  padding: ($gutter/2) 0;
+  .description {
+    color: tint($base, 40%);
+  	display: block;
+    font-size: 80%;
+    margin-left: $label;
+    margin-top: $gutter/4;
+  }
+  .input-list {
+    margin-left: $label;
+    ul.values {
+      @include box-shadow(rgba(0, 0, 0, 0.1) 0 0 5px 1px inset);
+      background: tint($background, 80%);
+      margin: $gutter/2 0 0;
+      padding: 0;
+      li {
+        @include border-radius($radius);
+        border: 1px solid $border;
+        list-style: none;
+        margin: 0;
+        padding: $gutter/2 $gutter/4 $gutter/2 $gutter/2;
+        &:last-child {
+          @include border-radius(0 0 $radius $radius);
+        }
+        &:first-child {
+          @include border-radius($radius $radius 0 0);
+        }
+        &:not(:last-child) {
+          border-bottom: 0;
+        }
+        .value {
+          @include ellipsis();
+          .label {
+            color: $base;
+            font-weight: 400;
+            margin-right: $gutter/2;
+          }
+        }
+      }
+    }
+  }
+}
+
+label {
+  display: block;
+  float: left;
+  font-weight: 400;
+  line-height: 140%;
+  padding: $gutter/4 0;
+  width: $label;
+}
+
+input,
+textarea {
+  font: $font;
+  line-height: 140%;
+}
+
+input:not([type=submit]),
+textarea {
+  background: #fff;
+  border: 1px solid $border;
+  padding: ($gutter/4) ($gutter/2);
+  width: 30%;
+  &:active,
+  &:focus {
+    border-color: shade($border, 10%);
+    outline: none;
+  }
+  &[disabled],
+  &[disabled=disabled],
+  &[readonly=true] {
+    background: transparent;
+  }
+}
+
+.nested .field {
+  label {
+    float: none;
+    width: auto;
+  }
+  input:not([type=submit]),
+  textarea {
+    @include border-radius($radius);
+    background: #fff;
+    border: 1px solid $border;
+    padding: ($gutter/4) ($gutter/2);
+    width: 40%;
+  }
+}
+
+/* BUTTONS */
+
+.button,
+.button:visited {
+  display: inline-block;
+  font-size: 11px;
+  line-height: inherit;
+  text-transform: uppercase;
+  @include button($base, true);
+  &.primary {
+    @include button($primary);
+  }
+  &.add,
+  &.remove {
+    &:before {
+      @include icon;
+      margin-right: $gutter/4;
+      vertical-align: middle;
+    }
+  }
+  &.add:before {
+    content: 'a';
+    font-weight: bold;
+  }
+  &.remove:before {
+    content: 'r';
+  }
+}
+
+input.button {
+  @include button(tint($base, 40%), true);
+}
+
+.options {
+  float: right;
+  margin-top: -($gutter/4);
+  .button,
+  input:not([type=submit]),
+  textarea {
+  	float: right;
+  	margin-left: $gutter/2;
+  }
+}
+
+.tabs,
+.bundle {
+  float: right;
+  margin-top: -($gutter/4);
+  a,
+  a.button {
+    display: inline-block;
+    font-size: 11px;
+    line-height: inherit;
+    text-transform: uppercase;
+    @include button($base, true);
+    &.primary {
+      @include button($primary);
+    }
+    @include border-radius(0);
+    float: right;
+    margin-left: 0;
+    &:last-child {
+      @include border-radius($radius 0 0 $radius);
+    }
+    &:first-child {
+      @include border-radius(0 $radius $radius 0);
+    }
+    &:not(:first-child) {
+      border-right: 0;
+    }
+    &:before {
+      @include icon;
+      margin-right: $gutter/4;
+    }
+    &.console:before {
+      content: 't';
+    }
+    &.monitoring:before {
+      content: 'm';
+    }
+    &.settings:before {
+      content: 's';
+    }
+  }
+}
