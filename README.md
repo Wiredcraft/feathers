@@ -2,6 +2,20 @@
 
 ![Monit](https://github.com/Wiredcraft/feathers/raw/master/extra/feather.png)
 
+## Why feather?
+
+`feather` is a project build on top of
+[ngBoilderplate](https://github.com/joshdmiller/ng-boilerplate) by
+[joshdmiller](https://github.com/joshdmiller). This project has a lot of best
+practice to code with AngularJS. We just add some new feature to meet our own
+needs. Like compile [Compass](http://compass-style.org/), because we love SASS
+except it's compile with `RUBY`, and also we want a server sometimes as sometimes
+our code need to talk with server so we add `connect`.
+
+There's also some other tools we've added to make it even awesome! Please take
+time to check the code and feel free to pull a request if you think you can do
+better than us.
+
 
 ## Quick Start
 
