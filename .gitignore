@@ -1,8 +1,7 @@
-.*
-!.gitignore
-!.bowerrc
-!.gitmodules
-
-/_site
-/components
-bower_components/
+*.sw*
+*~
+build/
+bin/
+node_modules/
+vendor/
+.DS_Store
