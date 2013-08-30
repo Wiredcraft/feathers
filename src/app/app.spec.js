@@ -1,17 +1,17 @@
-describe( 'AppCtrl', function() {
+describe( 'FeathersCtrl', function() {
   describe( 'isCurrentUrl', function() {
-    var AppCtrl, $location, $scope;
+    var FeathersCtrl, $location, $scope;
 
-    beforeEach( module( 'ngBoilerplate' ) );
+    beforeEach( module( 'Feathers' ) );
 
     beforeEach( inject( function( $controller, _$location_, $rootScope ) {
       $location = _$location_;
       $scope = $rootScope.$new();
-      AppCtrl = $controller( 'AppCtrl', { $location: $location, $scope: $scope });
+      FeathersCtrl = $controller( 'FeathersCtrl', { $location: $location, $scope: $scope });
     }));
 
     it( 'should pass a dummy test', inject( function() {
-      expect( AppCtrl ).toBeTruthy();
+      expect( FeathersCtrl ).toBeTruthy();
     }));
   });
 });

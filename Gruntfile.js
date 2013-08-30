@@ -184,36 +184,6 @@ module.exports = function ( grunt ) {
     },
 
     /**
-     * `recess` handles our LESS compilation and uglification automatically.
-     * Only our `main.less` file is included in compilation; all other files
-     * must be imported from this file.
-     */
-    recess: {
-      build: {
-        src: [ '<%= app_files.less %>' ],
-        dest: '<%= build_dir %>/assets/<%= pkg.name %>.css',
-        options: {
-          compile: true,
-          compress: false,
-          noUnderscores: false,
-          noIDs: false,
-          zeroUnits: false
-        }
-      },
-      compile: {
-        src: [ '<%= recess.build.dest %>' ],
-        dest: '<%= recess.build.dest %>',
-        options: {
-          compile: true,
-          compress: true,
-          noUnderscores: false,
-          noIDs: false,
-          zeroUnits: false
-        }
-      }
-    },
-
-    /**
      * `compass` handles our SASS compilation and uglification automatically.
      * Only our `style.scss` file is included in compilation; all other files
      * must be imported from this file.
@@ -323,7 +293,8 @@ module.exports = function ( grunt ) {
           '<%= html2js.common.dest %>',
           '<%= html2js.app.dest %>',
           '<%= vendor_files.css %>',
-          '<%= recess.build.dest %>'
+          '<%= vendor_files.img %>',
+          '<%= compass.build.options.cssDir %>/**/*.css'
         ]
       },
 
@@ -336,8 +307,7 @@ module.exports = function ( grunt ) {
         dir: '<%= compile_dir %>',
         src: [
           '<%= concat.compile_js.dest %>',
-          '<%= vendor_files.css %>',
-          '<%= recess.compile.dest %>'
+          '<%= vendor_files.css %>'
         ]
       }
     },
@@ -433,14 +403,6 @@ module.exports = function ( grunt ) {
       },
 
       /**
-       * When the CSS files change, we need to compile and minify them.
-       */
-      less: {
-        files: [ 'src/**/*.less' ],
-        tasks: [ 'recess:build' ]
-      },
-
-      /**
        * When the SCSS files change, we need to compile and minify them.
        */
       compass: {
@@ -507,7 +469,7 @@ module.exports = function ( grunt ) {
    * The `build` task gets your app ready to run for development and testing.
    */
   grunt.registerTask( 'build', [
-    'clean', 'html2js', 'jshint', 'recess:build', 'compass:build',
+    'clean', 'html2js', 'jshint', 'compass:build',
     'copy:build_assets', 'copy:build_appjs', 'copy:build_vendorjs',
     'index:build', 'karmaconfig', 'karma:continuous'
   ]);
@@ -517,7 +479,7 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
-    'recess:compile', 'copy:compile_assets', 'ngmin', 'concat', 'uglify', 'index:compile'
+    'copy:compile_assets', 'copy:compile_vendor', 'ngmin', 'concat', 'uglify', 'index:compile'
   ]);
 
   /**
