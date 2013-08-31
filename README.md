@@ -21,7 +21,7 @@ better than us.
 Install Node.js and then:
 
 ```sh
-$ git clone git://github.com/joshdmiller/ng-boilerplate
+$ git clone git://github.com/Wiredcraft/feathers
 $ cd feathers
 $ sudo npm -g install grunt-cli karma bower
 $ npm install
