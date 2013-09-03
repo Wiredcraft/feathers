@@ -1,7 +1,8 @@
-*.sw*
+.*
+!.gitignore
+!.bowerrc
+!.gitmodules
 *~
 build/
-bin/
 node_modules/
 vendor/
-.DS_Store

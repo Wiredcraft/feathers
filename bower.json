@@ -1,16 +1,10 @@
 {
-  "name": "Devops",
-  "version": "0.0.1",
-  "devDependencies": {
-    "angular": "~1.0.7",
-    "angular-mocks": "~1.0.7",
-    "bootstrap": "~2.3.2",
-    "angular-bootstrap": "~0.3.0",
-    "angular-ui-router": "~0.0.1",
-    "angular-ui-utils": "~0.0.3",
-    // specify a absolute url if is not available as a bower component
-    "nprogressjs": "http://ricostacruz.com/nprogress/nprogress.js",
-    "nprogresscss": "http://ricostacruz.com/nprogress/nprogress.css"
-  },
-  "dependencies": {}
+    "name": "Feathers",
+    "version": "0.0.1",
+    "devDependencies": {
+        "angular": "~1.0.7",
+        "angular-ui-router": "*",
+        "nprogressjs": "http://ricostacruz.com/nprogress/nprogress.js",
+        "nprogresscss": "http://ricostacruz.com/nprogress/nprogress.css"
+    }
 }
