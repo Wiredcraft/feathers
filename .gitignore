@@ -3,6 +3,7 @@
 !.bowerrc
 !.gitmodules
 *~
+bin/
 build/
 node_modules/
 vendor/
