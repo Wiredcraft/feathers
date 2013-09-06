@@ -3,8 +3,6 @@
     "version": "0.0.1",
     "devDependencies": {
         "angular": "~1.0.7",
-        "angular-ui-router": "*",
-        "nprogressjs": "http://ricostacruz.com/nprogress/nprogress.js",
-        "nprogresscss": "http://ricostacruz.com/nprogress/nprogress.css"
+        "angular-ui-router": "*"
     }
 }

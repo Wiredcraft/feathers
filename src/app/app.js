@@ -2,13 +2,6 @@ angular.module( 'Feathers', [
     'templates-app',
     'templates-common',
 
-    'Feathers.auth',
-    'Feathers.navbar',
-    'Feathers.profile',
-    'Feathers.server',
-    'Feathers.job',
-
-    'utils.filters',
     'ui.router'
 ])
 
@@ -17,15 +10,10 @@ angular.module( 'Feathers', [
 
 }])
 
-.run(['$rootScope', '$state', '$stateParams', '$cookieStore', '$http', function($rootScope, $state, $stateParams, $cookieStore, $http) {
+.run(['$rootScope', '$state', '$stateParams', function($rootScope, $state, $stateParams) {
 
 }])
 
 .controller( 'FeathersCtrl', function FeathersCtrl ( $scope, $location, $rootScope, $timeout) {
-    $rootScope.$on('globalMsg', function(listener, msg) {
-        $rootScope.globalMsg = msg;
-        $timeout(function() {
-            $rootScope.globalMsg = null;
-        }, 2500)
-    });
-})
+
+});
