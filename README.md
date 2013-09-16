@@ -5,7 +5,7 @@
 ## Why feathers?
 
 `Feathers` is a project build on top of
-[ngBoilderplate](https://github.com/joshdmiller/ng-boilerplate) by
+[ngBoilerplate](https://github.com/joshdmiller/ng-boilerplate) by
 [joshdmiller](https://github.com/joshdmiller). This project has a lot of best
 practices on coding with AngularJS. We added some more new features to meet our own
 needs. Like live compile [Compass](http://compass-style.org/) (we love SASS
