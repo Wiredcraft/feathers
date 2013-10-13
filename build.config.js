@@ -59,4 +59,39 @@ module.exports = {
     img: [
     ]
   },
+
+  /**
+   * Useful when you need to specify environment
+   */
+  ngconstant: {
+    options: {
+      space: ' '
+    },
+
+    // target
+    development: [{
+      dest: 'src/app/config.js',
+      wrap: '"use strict";\n\n <%= __ngModule %>',
+      name: 'config',
+      constants: {
+        ENV: 'development'
+      }
+    }],
+    staging: [{
+      dest: 'src/app/config.js',
+      wrap: '"use strict";\n\n <%= __ngModule %>',
+      name: 'config',
+      constants: {
+        ENV: 'staging'
+      }
+    }],
+    production: [{
+      dest: 'app/config.js',
+      wrap: '"use strict";\n\n <%= __ngModule %>',
+      name: 'config',
+      constants: {
+        ENV: 'production'
+      }
+    }]
+  }
 };
