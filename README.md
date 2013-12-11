@@ -26,6 +26,11 @@ $ cd feathers
 $ sudo npm -g install grunt-cli karma bower
 $ npm install
 $ bower install
+```
+
+### For development
+
+```
 $ grunt dev
 ```
 
@@ -33,6 +38,18 @@ $ grunt dev
 
 ```
 $ grunt live
+```
+
+### For Staging
+
+```
+$ grunt staging
+```
+
+### For Production
+
+```
+$ grunt production
 ```
 
 Happy hacking!
