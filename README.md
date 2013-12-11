@@ -29,6 +29,12 @@ $ bower install
 $ grunt dev
 ```
 
+### Livereload
+
+```
+$ grunt live
+```
+
 Happy hacking!
 
 ## Purpose
