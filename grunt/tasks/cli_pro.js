@@ -1,9 +1,20 @@
 module.exports = function(grunt) {
     grunt.registerTask('default', [
         'ngconstant:production',
-        'build',
+
+        'clean',
+        'html2js',
+        'compass',
+        'copy:build_assets',
+        'copy:build_vendor',
         'copy:build_appjs_product',
         'headers:build',
-        'compile'
+
+        'copy:compile_assets',
+        'copy:compile_vendor',
+        'ngmin',
+        'concat',
+        'uglify',
+        'headers:compile'
     ]);
 }

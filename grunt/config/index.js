@@ -23,6 +23,7 @@ module.exports = function(grunt) {
         ngmin: require('./ngmin')(grunt),
         shell: require('./shell')(grunt),
         uglify: require('./uglify')(grunt),
-        watch: require('./watch')(grunt)
+        watch: require('./watch')(grunt),
+        jshint: require('./jshint')(grunt)
     };
 };
