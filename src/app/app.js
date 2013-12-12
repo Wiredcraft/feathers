@@ -1,5 +1,6 @@
 angular.module( 'Feathers', [
     'config',
+    'login',
 
     'templates-app',
     'templates-common',
@@ -21,9 +22,9 @@ angular.module( 'Feathers', [
 }])
 
 .controller( 'FeathersCtrl', ['$scope', 'ENV', '$log', function FeathersCtrl ( $scope, ENV , $log) {
-    if (ENV === 'development') {
-        $log.log('You are under development mode!');
-    }
+    // if (ENV === 'development') {
+    //     $log.log('You are under development mode!');
+    // }
 
     $scope.mode = (ENV === 'development') ? ENV : 'production';
 }])
