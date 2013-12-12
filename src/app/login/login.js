@@ -1,4 +1,4 @@
-angular.module('login', [
+angular.module('Login', [
     'ui.router'
 ])
 
