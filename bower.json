@@ -1,6 +1,6 @@
 {
   "name": "Feathers",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "devDependencies": {
     "angular-ui-router": "0.2.7",
     "angular": "~1.2.5",
