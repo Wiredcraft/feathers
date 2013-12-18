@@ -49,7 +49,7 @@ $ grunt staging
 ### For Production
 
 ```
-$ grunt production
+$ grunt
 ```
 
 Happy hacking!
