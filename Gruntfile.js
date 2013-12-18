@@ -114,18 +114,7 @@ module.exports = function(grunt) {
                     }
                 });
             }
-        })
-        grunt.file.copy('src/auth.html', this.data.dir + '/auth.html', {
-            process: function(contents, path) {
-                return grunt.template.process(contents, {
-                    data: {
-                        scripts: jsFiles,
-                        styles: cssFiles,
-                        version: grunt.config('pkg.version')
-                    }
-                });
-            }
-        })
+        });
     });
 
     grunt.registerMultiTask('karmaconfig', 'Process karma config templates', function() {

@@ -2,6 +2,6 @@
 
  angular.module("config", [])
 
-.constant("ENV", "staging")
+.constant("ENV", "production")
 
 ;
