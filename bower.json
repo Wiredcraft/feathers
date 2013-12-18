@@ -1,8 +1,9 @@
 {
     "name": "Feathers",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "devDependencies": {
-        "angular": "~1.2.4",
-        "angular-ui-router": "0.2.5"
+        "angular": "~1.3.0",
+        "angular-ui-router": "0.2.5",
+        "angular-mocks": "1.0.8"
     }
 }
