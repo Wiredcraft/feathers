@@ -7,3 +7,4 @@ bin/
 build/
 node_modules/
 vendor/
+app/config.js
