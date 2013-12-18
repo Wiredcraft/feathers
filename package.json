@@ -1,34 +1,36 @@
 {
-    "author": "Wiredcraft",
-    "name": "feathers",
-    "version": "0.0.2",
-    "homepage": "https://github.com/Wiredcraft/feathers",
-    "licenses": {
-        "type": "MIT",
-        "url": "https://raw.github.com/Wiredcraft/feathers/master/LICENSE-MIT"
-    },
-    "bugs": "https://github.com/Wiredcraft/feathers/issues",
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:Wiredcraft/feathers.git"
-    },
-    "devDependencies": {
-        "grunt": "~0.4.2",
-        "grunt-notify": "0.2.16",
-        "grunt-contrib-compass": "~0.7.0",
-        "grunt-contrib-connect": "~0.5.0",
-        "grunt-contrib-clean": "~0.5.0",
-        "grunt-contrib-copy": "~0.4.1",
-        "grunt-contrib-concat": "~0.3.0",
-        "grunt-contrib-watch": "~0.5.3",
-        "grunt-contrib-uglify": "~0.2.7",
-        "grunt-karma": "~0.5.0",
-        "grunt-ngmin": "0.0.3",
-        "grunt-html2js": "~0.2.2",
-        "grunt-shell": "~0.6.1",
-        "grunt-ng-constant": "~0.4.5",
-        "grunt-contrib-jshint": "~0.7.2",
-        "load-grunt-tasks": "~0.2.1",
-        "globule": "~0.1.0"
-    }
+  "author": "Wiredcraft",
+  "name": "feathers",
+  "version": "0.0.2",
+  "homepage": "https://github.com/Wiredcraft/feathers",
+  "licenses": {
+    "type": "MIT",
+    "url": "https://raw.github.com/Wiredcraft/feathers/master/LICENSE-MIT"
+  },
+  "bugs": "https://github.com/Wiredcraft/feathers/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Wiredcraft/feathers.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-notify": "0.2.16",
+    "grunt-contrib-compass": "~0.7.0",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-karma": "~0.5.0",
+    "grunt-ngmin": "0.0.3",
+    "grunt-html2js": "~0.2.2",
+    "grunt-shell": "~0.6.1",
+    "grunt-ng-constant": "~0.4.5",
+    "grunt-contrib-jshint": "~0.7.2",
+    "load-grunt-tasks": "~0.2.1",
+    "globule": "~0.1.0",
+    "grunt-conventional-changelog": "~1.0.0",
+    "grunt-bump": "0.0.13"
+  }
 }
