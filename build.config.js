@@ -61,7 +61,7 @@ module.exports = {
       }
     }],
     production: [{
-      dest: 'app/config.js',
+      dest: 'src/app/config.js',
       wrap: '"use strict";\n\n <%= __ngModule %>',
       name: 'config',
       constants: {
