@@ -1,24 +1,21 @@
 var gulp = require('gulp')
 var rimraf = require('gulp-rimraf')
+var compass = require('gulp-compass')
 
 /**
  * clean task
  */
 gulp.task('clean', function() {
-    gulp.src('build/**')
+    gulp.src(['build/**', 'bin/**'])
         .pipe(rimraf())
 })
 
 /**
- * copy task
+ * compile compass
  */
-gulp.task('copy', function() {
-  gulp.src('client/img/**')
-    .pipe(gulp.dest('build/img'));
-
-  gulp.src('client/css/**')
-    .pipe(gulp.dest('build/css'));
-
-  gulp.src('client/*.html')
-    .pipe(gulp.dest('build'));
-});
+gulp.task('compass', function() {
+  gulp.src('src/scss/*.scss')
+    .pipe(compass({
+        config_file: 'compass.config.rb'
+    }))
+})

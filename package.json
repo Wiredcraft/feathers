@@ -33,6 +33,7 @@
     "grunt-conventional-changelog": "~1.0.0",
     "grunt-bump": "0.0.13",
     "gulp": "~3.2.1",
-    "gulp-rimraf": "~0.0.5"
+    "gulp-rimraf": "~0.0.5",
+    "gulp-compass": "~1.0.0"
   }
 }
