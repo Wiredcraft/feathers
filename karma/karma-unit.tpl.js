@@ -33,7 +33,7 @@ module.exports = function ( karma ) {
     /**
      * Disable file watching by default.
      */
-    autoWatch: false,
+    autoWatch: true,
 
     /**
      * The list of browsers to launch to test on. This includes only "Firefox" by
@@ -49,7 +49,7 @@ module.exports = function ( karma ) {
      * the aesthetic advantage of not launching a browser every time you save.
      */
     browsers: [
-      'Chrome', 'Firefox'
+      'Chrome'
     ]
   });
 };

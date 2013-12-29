@@ -75,7 +75,7 @@ module.exports = function(grunt) {
      * task for test
      */
     grunt.registerTask('test', [
-        'karma:unit', 'karmaconfig', 'karma:continuous'
+        'karmaconfig', 'karma:unit', 'karma:continuous'
     ]);
 
     function filterForJS(files) {
