@@ -19,7 +19,8 @@ module.exports = function(grunt) {
      * common build task
      */
     grunt.registerTask('build', [
-        'clean', 'html2js', 'jshint', 'compass:build', 'copy:build_app_assets',
+        'clean', 'stencil', 'html2js', 'jshint', 'compass:build',
+        'copy:build_app_assets',
         'copy:build_vendor_assets', 'copy:build_appjs', 'copy:build_vendorjs',
         'headers:build'
     ]);

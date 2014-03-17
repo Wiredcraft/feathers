@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    {{= it.include('header', { title : '505'  + ' | '  + it.package.name }) }}
+    {{= it.include('css', { status : '505' }) }}
+</head>
+<body>
+    {{= it.include('body', {
+        title : 'Looks like something went wrong!',
+        desc : 'We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.',
+        homelink : 'http://' + it.package.name,
+        notice : 'Just take me back to ' + it.package.name + ' →'
+    }) }}
+</body>
+</html>

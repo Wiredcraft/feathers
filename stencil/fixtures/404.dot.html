@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    {{= it.include('header', { title : '404'  + ' | '  + it.package.name }) }}
+    {{= it.include('css', { status : '404' }) }}
+</head>
+<body>
+    {{= it.include('body', {
+        title : '404 panda!',
+        desc : 'Looks like the page you’re looking for doesn’t exist.',
+        homelink : 'http://' + it.package.name,
+        notice : 'Just take me back to ' + it.package.name + ' →'
+    }) }}
+</body>
+</html>
