@@ -7,7 +7,7 @@ module.exports = function(grunt) {
                 templates: 'stencil/templates',
                 env: {
                     pkg : pkg,
-                    homelink : 'http://' + pkg.name,
+                    homelink : '/',
                     linkdesc : 'Just take me back to ' + pkg.name + ' →',
                     404 : {
                         title : '404 panda!',

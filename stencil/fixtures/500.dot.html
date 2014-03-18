@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    {{= it.include('header', { title : '500'  + ' | '  + it.pkg.name }) }}
+    {{= it.include('css', { status : '500' }) }}
+</head>
+<body>
+    {{= it.include('content', it['500']) }}
+</body>
+</html>
