@@ -3,8 +3,8 @@
 !.bowerrc
 !.gitmodules
 *~
-bin/
-build/
+
 node_modules/
 vendor/
-app/config.js
+dist/
+lib/
