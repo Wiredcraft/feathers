@@ -1,1 +1,0 @@
-!function(){try{app=angular.module("templates")}catch(e){app=angular.module("templates",[])}app.run(["$templateCache",function(e){e.put("templates/home.tpl.html","<section>\n	<h1>Is Feathers working?</h1>\n	<h2>{{ test | lowercase }}</h2>\n\n	<h3>How about underscore? <code>{{ underscore }}</code></h3>\n</section>")}])}();
