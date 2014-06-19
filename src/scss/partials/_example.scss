@@ -1,0 +1,26 @@
+#home {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .login {
+    max-width: $login;
+    header {
+      text-align: center;
+    }
+    .button {
+      @include box-sizing(border-box);
+      padding: $gutter/2;
+      width: 100%;
+      &:before {
+        @include icon();
+        content: 'h';
+        @include font-size($normal);
+        margin-right: $gutter/2;
+      }
+    }
+    .warning {
+      @include font-size($small);
+    }
+  }
+}

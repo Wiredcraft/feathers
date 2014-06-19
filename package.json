@@ -1,37 +1,38 @@
 {
-  "author": "Wiredcraft",
   "name": "feathers",
-  "version": "0.1.0",
-  "homepage": "https://github.com/Wiredcraft/feathers",
-  "licenses": {
-    "type": "MIT",
-    "url": "https://raw.github.com/Wiredcraft/feathers/master/LICENSE-MIT"
-  },
-  "bugs": "https://github.com/Wiredcraft/feathers/issues",
+  "version": "0.1.0-2014",
+  "description": "angularjs project template",
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git@github.com:Wiredcraft/feathers.git"
   },
+  "keywords": [
+    "angularjs",
+    "feathers",
+    "wiredcraft",
+    "template",
+    "boilerplate"
+  ],
+  "author": "info@wiredcraft.com",
+  "license": "MIT",
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-notify": "0.2.16",
-    "grunt-contrib-compass": "~0.7.0",
-    "grunt-contrib-connect": "~0.5.0",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-karma": "~0.5.0",
-    "grunt-ngmin": "0.0.3",
-    "grunt-html2js": "~0.2.2",
-    "grunt-shell": "~0.6.1",
-    "grunt-ng-constant": "~0.4.5",
-    "grunt-contrib-jshint": "~0.7.2",
-    "load-grunt-tasks": "~0.2.1",
-    "globule": "~0.1.0",
-    "grunt-conventional-changelog": "~1.0.0",
-    "grunt-bump": "0.0.13",
-    "grunt-stencil": "^1.0.2"
+    "gulp": "latest",
+    "gulp-clean": "latest",
+    "gulp-coffee": "latest",
+    "gulp-coffeelint": "latest",
+    "gulp-concat": "latest",
+    "gulp-jshint": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-mocha": "latest",
+    "gulp-ng-constant": "latest",
+    "gulp-notify": "latest",
+    "gulp-rename": "latest",
+    "gulp-sass": "latest",
+    "eggshell": "latest",
+    "gulp-uglify": "latest",
+    "gulp-util": "latest",
+    "jshint-stylish": "latest",
+    "gulp-html2js": "latest"
   }
 }
