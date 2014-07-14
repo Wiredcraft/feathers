@@ -12,12 +12,11 @@ var PATH = {
   sass: 'src/assets/scss',
   vendor: 'vendor',
 
-
   build: 'build'
 }
 
 // Sass
-gulp.task('sass', function () {
+gulp.task('sass', function() {
   return gulp.src(PATH.sass + '/style.scss')
     .pipe(cached('sass'))
     .pipe($.sass({
@@ -30,3 +29,49 @@ gulp.task('sass', function () {
     .pipe(gulp.dest(PATH.build + '/assets/css'))
     .pipe($.size());
 });
+
+// Vendor
+gulp.task('vendorjs', function() {
+  return gulp.src('vendor/**/*.js')
+    .pipe(gulp.dest(PATH.build + '/vendors'))
+    .pipe($.size());
+});
+
+// Vendor css
+gulp.task('vendorcss', function() {
+  return gulp.src('vendor/**/*.css')
+    .pipe(gulp.dest(PATH.build + '/vendors'))
+    .pipe($.size());
+});
+
+// CoffeeScript
+gulp.task('coffee', function() {
+  return gulp.src('src/app/**/*.coffee')
+    .pipe(cached('coffee'))
+    .pipe($.coffee({bare: true}))
+    .on('error', function(e) {
+      $.util.log(e.toString());
+      this.emit('end');
+    })
+    .pipe(gulp.dest('build/scripts'))
+    .pipe($.size());
+});
+
+// Images
+gulp.task('images', function() {
+  return gulp.src('src/assets/images/**/*')
+    .pipe($.cache($.imagemin({
+      optimizationLevel: 3,
+      progressive: true,
+      interlaced: true
+    })))
+    .pipe(gulp.dest('build/assets/images'))
+    .pipe($.size());
+});
+
+// Clean
+gulp.task('clean', function() {
+  return gulp.src(['dist/*', 'build/*'], {read: false})
+    .pipe($.clean());
+});
+
