@@ -2,7 +2,13 @@
 
 var gulp = require('gulp');
 var wiredep  = require('wiredep').stream;
-var cached = require('gulp-cached');
+var config   = require('config');
+var cached   = require('gulp-cached');
+var es       = require('event-stream');
+var seq      = require('run-sequence');
+var lazypipe = require('lazypipe');
+
+var mainBowerFiles = require('main-bower-files');
 
 // Load plugins
 var $ = require('gulp-load-plugins')();
@@ -63,7 +69,7 @@ gulp.task('coffee', function() {
       $.util.log(e.toString());
       this.emit('end');
     })
-    .pipe(gulp.dest('build/scripts'))
+    .pipe(gulp.dest('build/app'))
     .pipe($.size());
 });
 
@@ -86,4 +92,57 @@ gulp.task('clean', function() {
 });
 
 // Transpile
-gulp.task('transpile', ['sass', 'coffee', 'js', 'vendorjs', 'vendorcss'])
+gulp.task('transpile', ['sass', 'coffee', 'js', 'vendorjs', 'vendorcss']);
+
+// jade -> html
+var jadeify = lazypipe()
+  .pipe($.jade, {
+    pretty: true
+  });
+
+// Inject global js vars
+var injectGlobals = lazypipe()
+  .pipe($.frep, [{
+    pattern: '@@GLOBALS',
+    replacement: JSON.stringify({
+      OCTOPART_KEY: config.OCTOPART_KEY
+    })
+  }]);
+
+// Jade to html
+gulp.task('base-tmpl', function() {
+  return gulp.src('src/index.jade')
+    .pipe($.changed('build'))
+    .pipe(jadeify())
+    .pipe(injectGlobals())
+    .pipe($.inject($.bowerFiles({read: false}), {
+      ignorePath: ['src'],
+      starttag: '<!-- bower:{{ext}} -->',
+      endtag: '<!-- endbower -->'
+    }))
+    .pipe($.inject(gulp.src([
+      'build/scripts/**/*.js',
+      'build/assets/**/*.css'
+      ], {
+        read: false
+      }), {
+      ignorePath: ['build'],
+      starttag: '<!-- inject:{{ext}} -->',
+      endtag: '<!-- endinject -->'
+    }))
+    .pipe(gulp.dest('build'))
+    .pipe($.size());
+});
+
+// Jade to JS
+gulp.task('js-tmpl', function() {
+  return gulp.src('src/app/**/*.jade')
+    .pipe(cached('js-tmpl'))
+    .pipe(jadeify())
+    .pipe($.ngHtml2js({
+      moduleName: 'feathersPartials'
+    }))
+    .pipe(gulp.dest('build/app'));
+});
+
+// useref
