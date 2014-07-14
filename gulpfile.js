@@ -30,6 +30,16 @@ gulp.task('sass', function() {
     .pipe($.size());
 });
 
+// JS
+gulp.task('js', function() {
+  return gulp.src('src/app/**/*.js')
+    .pipe(cached('js'))
+    .pipe($.jshint('.jshintrc'))
+    .pipe($.jshint.reporter('default'))
+    .pipe(gulp.dest('build/scripts'))
+    .pipe($.size());
+});
+
 // Vendor
 gulp.task('vendorjs', function() {
   return gulp.src('vendor/**/*.js')
@@ -75,3 +85,5 @@ gulp.task('clean', function() {
     .pipe($.clean());
 });
 
+// Transpile
+gulp.task('transpile', ['sass', 'coffee', 'js', 'vendorjs', 'vendorcss'])
