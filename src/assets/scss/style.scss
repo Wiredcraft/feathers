@@ -12,8 +12,8 @@
  *
  */
 
-/* Compass */
-@import "compass/css3/images";
+/* Bourbon*/
+@import "bourbon";
 
 /* Tools */
 @import "tools/functions";
@@ -37,5 +37,4 @@
 
 /* Modules */
 @import "modules/btn";
-@import "modules/icons";
 //@import "modules/animations";
