@@ -135,6 +135,54 @@ gulp.task('js-tmpl', function() {
 });
 
 // useref
+gulp.task('useref', function() {
+  $.util.log('running useref');
+  var jsFilter = $.filter('build/**/*.js');
+  var cssFilter = $.filter('build/**/*.css');
+
+  return es.merge(
+    gulp.src('build/index.html', {base: 'build'})
+      .pipe($.useref.assets())
+      .pipe(jsFilter)
+      .pipe($.uglify())
+      .pipe(jsFilter.restore())
+      .pipe(cssFilter)
+      .pipe($.minifyCss())
+      .pipe(cssFilter.restore())
+      .pipe($.useref.restore())
+      .pipe($.useref())
+  )
+  .pipe(gulp.dest('build'))
+  .pipe($.if(/^((?!(index\.html)).)*$/, $.rev()))
+  .pipe(gulp.dest('dist'))
+  .pipe($.rev.manifest())
+  .pipe(gulp.dest('build'))
+  .pipe($.size());
+});
+
+// Update file version refs
+gulp.task('replace', function() {
+  var manifest = require('./build/rev-manifest');
+
+  manifest['@@OCTOPART_KEY'] = config.OCTOPART_KEY
+
+  var patters = []
+  for (var k in manifest) {
+    patters.push({
+      pattern: k,
+      replacement: manifest[k]
+    });
+  };
+
+  return gulp.src([
+    'dist/*.html',
+    'dist/styles/**/*.css',
+    'dist/scripts/main*.js'
+  ], {base: 'dist'})
+    .pipe($.frep(patters))
+    .pipe(gulp.dest('dist'))
+    .pipe($.size());
+});
 
 // Watch
 gulp.task('watch', function() {
@@ -170,7 +218,7 @@ gulp.task('watch', function() {
 })
 
 // Build tasks for development
-gulp.task('build', function(cb) {
+gulp.task('build-dev', function(cb) {
   seq(
     'clean',
     'transpile',
@@ -182,11 +230,20 @@ gulp.task('build', function(cb) {
 
 // Dev
 gulp.task('dev', function(cb) {
-  seq('build', 'watch', cb);
+  seq('build-dev', 'watch', cb);
 });
 
 gulp.task('reload-js-tmpl', function(cb) {
   seq('js-tmpl', 'base-tmpl', cb);
+});
+
+gulp.task('build-prod', function(cb) {
+  seq(
+    'build-dev',
+    'useref',
+    'replace',
+    cb
+  );
 });
 
 // E2E Protractor tests
