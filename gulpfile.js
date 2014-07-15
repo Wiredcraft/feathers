@@ -13,26 +13,25 @@ var mainBowerFiles = require('main-bower-files');
 // Load plugins
 var $ = require('gulp-load-plugins')();
 
-// Paths
-var PATH = {
-  sass: 'src/assets/scss',
-  vendor: 'vendor',
+var LIVERELOAD_PORT = 35729;
 
-  build: 'build'
-}
+// Paths
+var vendor = [
+  'vendor/angular/angular.js',
+  'vendor/angular-ui-router/release/angular-ui-router.js'
+]
 
 // Sass
 gulp.task('sass', function() {
-  return gulp.src(PATH.sass + '/style.scss')
+  return gulp.src('src/assets/scss/style.scss')
     .pipe(cached('sass'))
     .pipe($.sass({
       includePaths: require('node-bourbon').includePaths
     }))
-    .pipe($.autoprefixer('last 1 version'))
     .pipe(wiredep({
-      directory: PATH.vendor
+      directory: 'vendor'
     }))
-    .pipe(gulp.dest(PATH.build + '/assets/css'))
+    .pipe(gulp.dest('build/assets/css'))
     .pipe($.size());
 });
 
@@ -49,14 +48,14 @@ gulp.task('js', function() {
 // Vendor
 gulp.task('vendorjs', function() {
   return gulp.src('vendor/**/*.js')
-    .pipe(gulp.dest(PATH.build + '/vendors'))
+    .pipe(gulp.dest('build/vendor'))
     .pipe($.size());
 });
 
 // Vendor css
 gulp.task('vendorcss', function() {
   return gulp.src('vendor/**/*.css')
-    .pipe(gulp.dest(PATH.build + '/vendors'))
+    .pipe(gulp.dest('build/vendor'))
     .pipe($.size());
 });
 
@@ -70,18 +69,6 @@ gulp.task('coffee', function() {
       this.emit('end');
     })
     .pipe(gulp.dest('build/app'))
-    .pipe($.size());
-});
-
-// Images
-gulp.task('images', function() {
-  return gulp.src('src/assets/images/**/*')
-    .pipe($.cache($.imagemin({
-      optimizationLevel: 3,
-      progressive: true,
-      interlaced: true
-    })))
-    .pipe(gulp.dest('build/assets/images'))
     .pipe($.size());
 });
 
@@ -115,20 +102,22 @@ gulp.task('base-tmpl', function() {
     .pipe($.changed('build'))
     .pipe(jadeify())
     .pipe(injectGlobals())
-    .pipe($.inject($.bowerFiles({read: false}), {
+    .pipe($.inject(gulp.src(vendor, {
+      read: false
+    }), {
       ignorePath: ['src'],
-      starttag: '<!-- bower:{{ext}} -->',
-      endtag: '<!-- endbower -->'
+      starttag: '<!-- bower:{{ext}}-->',
+      endtag: '<!-- endbower-->'
     }))
     .pipe($.inject(gulp.src([
-      'build/scripts/**/*.js',
+      'build/app/**/*.js',
       'build/assets/**/*.css'
       ], {
         read: false
       }), {
       ignorePath: ['build'],
-      starttag: '<!-- inject:{{ext}} -->',
-      endtag: '<!-- endinject -->'
+      starttag: '<!-- inject:{{ext}}-->',
+      endtag: '<!-- endinject-->'
     }))
     .pipe(gulp.dest('build'))
     .pipe($.size());
@@ -140,9 +129,62 @@ gulp.task('js-tmpl', function() {
     .pipe(cached('js-tmpl'))
     .pipe(jadeify())
     .pipe($.ngHtml2js({
-      moduleName: 'feathersPartials'
+      moduleName: 'tpl'
     }))
     .pipe(gulp.dest('build/app'));
 });
 
 // useref
+
+// Watch
+gulp.task('watch', function() {
+  var lr = require('tiny-lr')();
+
+  lr.listen(LIVERELOAD_PORT);
+
+  gulp.watch([
+    'build/*.html',
+    'build/assets/**/*.css',
+    'build/app/**/*.js',
+    'build/assets/images/**/*.*'
+  ], function(event) {
+    gulp.src(event.path, {read: false})
+      .pipe($.livereload(lr));
+  });
+
+  // Wathch .scss files
+  gulp.watch('src/assets/scss/**/*.scss', ['sass']);
+
+  // Watch .js files
+  gulp.watch('src/app/**/*.js', ['js']);
+
+  // Watch .coffee files
+  gulp.watch('src/app/**/*.coffee', ['coffee']);
+
+  // Watch .jade files
+  gulp.watch('src/index.jade', ['base-tmpl']);
+  gulp.watch('src/app/**/*.jade', ['reload-js-tmpl']);
+
+  // Watch vendor files
+  gulp.watch('vendor/*', ['bowerjs', 'bowercss']);
+})
+
+// Build tasks for development
+gulp.task('build', function(cb) {
+  seq(
+    'clean',
+    'transpile',
+    'js-tmpl',
+    'base-tmpl',
+    cb
+  );
+});
+
+// Dev
+gulp.task('dev', function(cb) {
+  seq('build', 'watch', cb);
+});
+
+gulp.task('reload-js-tmpl', function(cb) {
+  seq('js-tmpl', 'base-tmpl', cb);
+});
