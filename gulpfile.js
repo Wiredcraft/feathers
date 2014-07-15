@@ -188,3 +188,20 @@ gulp.task('dev', function(cb) {
 gulp.task('reload-js-tmpl', function(cb) {
   seq('js-tmpl', 'base-tmpl', cb);
 });
+
+// E2E Protractor tests
+gulp.task('protractor', function() {
+  require('coffee-script/register');
+  return gulp.src('test/e2e/**/*.coffee')
+    .pipe($.protractor.protractor({
+      configFile: 'protractor.conf.js'
+    }))
+    .on('error', function(e) {
+      $.util.log(e.toString());
+      this.emit('end');
+    });
+});
+
+gulp.task('test:e2e', ['protractor'], function() {
+  gulp.watch('test/e2e/**/*.coffee', ['protractor']);
+});

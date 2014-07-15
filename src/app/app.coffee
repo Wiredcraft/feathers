@@ -11,10 +11,10 @@ angular.module('feathers', [
 
 .config ($stateProvider, $urlRouterProvider, $locationProvider, $sceProvider, $httpProvider) ->
 
-  $sceProvider.enabled(false)
+  # $sceProvider.enabled(false)
 
   # push-state routes
-  $locationProvider.html5Mode(true)
+  # $locationProvider.html5Mode(true)
 
   # default to 404 if state not found
   $urlRouterProvider.otherwise('/404')
@@ -66,4 +66,4 @@ angular.module('feathers', [
     })
 
 .controller 'IndexCtrl', ($scope) ->
-  console.log 'index'
+  console.log 'index page'
