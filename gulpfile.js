@@ -8,6 +8,9 @@ var es       = require('event-stream');
 var seq      = require('run-sequence');
 var lazypipe = require('lazypipe');
 
+
+console.log('config', config)
+
 var mainBowerFiles = require('main-bower-files');
 
 // Load plugins
@@ -92,7 +95,7 @@ var injectGlobals = lazypipe()
   .pipe($.frep, [{
     pattern: '@@GLOBALS',
     replacement: JSON.stringify({
-      OCTOPART_KEY: config.OCTOPART_KEY
+      VERSION: config.VERSION
     })
   }]);
 
@@ -164,7 +167,7 @@ gulp.task('useref', function() {
 gulp.task('replace', function() {
   var manifest = require('./build/rev-manifest');
 
-  manifest['@@OCTOPART_KEY'] = config.OCTOPART_KEY
+  manifest['@@VERSION'] = config.VERSION
 
   var patters = []
   for (var k in manifest) {
