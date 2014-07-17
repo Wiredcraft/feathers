@@ -8,11 +8,6 @@ var es       = require('event-stream');
 var seq      = require('run-sequence');
 var lazypipe = require('lazypipe');
 
-
-console.log('config', config)
-
-var mainBowerFiles = require('main-bower-files');
-
 // Load plugins
 var $ = require('gulp-load-plugins')();
 
