@@ -17,7 +17,7 @@ var LIVERELOAD_PORT = 35729;
 var vendor = [
   'vendor/angular/angular.js',
   'vendor/angular-ui-router/release/angular-ui-router.js'
-]
+];
 
 // Sass
 gulp.task('sass', function() {
