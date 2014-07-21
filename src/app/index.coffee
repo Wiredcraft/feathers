@@ -36,4 +36,4 @@ angular.module('feathers')
     })
 
 .controller 'IndexCtrl', ($scope) ->
-    console.log 'index page'
+    $scope.CONFIG = window.CONFIG
