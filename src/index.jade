@@ -25,15 +25,17 @@ html.no-js
 
   body(ng-app='feathers', ng-controller='MainCtrl')
 
-    p Feathers
+    .container
+      ul.nav.navbar-nav
+        li(ui-sref-active='active')
+          a(ui-sref='home') Home
+        li(ui-sref-active='active')
+          a(ui-sref='docs') Documentation
+        li(ui-sref-active='active')
+          a(ui-sref='about') About
 
     .container#content
       div(ui-view)
-
-    span#spinner(
-      us-spinner='{radius:30, width: 2, length: 16, color: "#dedede"}'
-      spinner-key='main-loading'
-    )
 
     // build:js /scripts/vendor.js
     // bower:js

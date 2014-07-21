@@ -3,9 +3,8 @@ angular.module('feathers', [
 
   # pages
   'app.Home'
-  'app.Login'
 
-  # feathersPartials
+  # templates
   'tpl'
 ])
 
@@ -22,48 +21,21 @@ angular.module('feathers', [
   $stateProvider
     .state 'index',
       url: '/'
-      templateUrl: 'index.html'
+      templateUrl: 'home/home.tpl.html'
       controller: 'IndexCtrl'
+
+    .state 'home',
+      url: '/home'
+      templateUrl: 'home/home.tpl.html'
+
+    .state 'docs',
+      url: '/docs'
+      templateUrl: 'docs/docs.tpl.html'
+
+    .state 'about',
+      url: '/about'
+      templateUrl: 'about/about.tpl.html'
 
     .state '404',
       url: '/404'
-      templateUrl: '404.html'
-
-
-.controller 'MainCtrl', ($rootScope, $scope, $location, $state, $stateParams, $timeout) ->
-
-  # called on page change (ui-sref)
-  # $rootScope.$on '$stateChangeStart', (event, toState, toParams, fromState, fromParams) ->
-    # tracking
-    # ga('send', 'pageview', {'page': $location.path()})
-
-    # set body class to state name
-    # $body.attr 'class', toState.name.replace(/\./g, ' ') + ' loading'
-
-    # show loading spinner
-    # usSpinnerService.spin('main-loading')
-
-    # close dropdown nav
-    # $scope.collapse = false
-
-  # new page, DOM has finished loading
-  # $rootScope.$on '$viewContentLoaded', (event, viewConfig) ->
-    # $timeout((->
-      # remove loading spinner
-      # usSpinnerService.stop('main-loading')
-
-      # fade in
-      # $body.removeClass('loading')
-    # ), 0)
-
-  # redraw the current page. useful for updating content when
-  # data has changed server-side.
-  $rootScope.refresh = ->
-    $state.transitionTo($state.current, $stateParams, {
-      reload: true
-      inherit: false
-      notify: true
-    })
-
-.controller 'IndexCtrl', ($scope) ->
-  console.log 'index page'
+      templateUrl: 'static/404.html'
