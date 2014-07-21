@@ -213,6 +213,11 @@ gulp.task('watch', function() {
 
   // Watch vendor files
   gulp.watch('vendor/*', ['bowerjs', 'bowercss']);
+
+  $.serve({
+      root: 'build',
+      port: 8000
+  })();
 })
 
 // Build tasks for development
