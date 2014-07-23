@@ -7,6 +7,46 @@
 `Feathers` wants to share a lot of best
 practices on coding with AngularJS with you.
 
+## About
+
+This app uses the following:
+
+#### Languages
+* [jade templates](http://jade-lang.com/)
+* [node-sass](https://github.com/sass/node-sass)
+* [coffeescript](http://coffeescript.org/)
+
+#### Libraries
+* [angularjs](http://angularjs.org/)
+* [angular-ui router](https://github.com/angular-ui/ui-router)
+
+#### Testing
+* [karma](http://karma-runner.github.io/0.12/index.html)
+* [protractor](https://github.com/angular/protractor)
+* [mocha](http://visionmedia.github.io/mocha/)
+* [chai](http://chaijs.com/guide/installation/)
+* [sinon](http://sinonjs.org/)
+
+### Development
+
+#### Start Dev Server
+`gulp dev`
+
+### Testing
+
+#### Unit Tests
+
+Unit tests use karma + mocha.
+
+`karma start` - runs all tests in `test/unit/**/*.coffee`
+
+#### E2E Tests
+
+E2E Tests use protractor + mocha.
+
+`gulp test:e2e` - runs all tests in `test/e2e/**/*.coffee`
+
+
 ## Quick Start
 
 Install Node.js and then:
