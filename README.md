@@ -44,6 +44,9 @@ Unit tests use karma + mocha.
 
 E2E Tests use protractor + mocha.
 
+
+`webdriver-manager start`
+`gulp dev`
 `gulp test:e2e` - runs all tests in `test/e2e/**/*.coffee`
 
 
