@@ -58,6 +58,7 @@
     "mocha": "^1.20.1",
     "node-bourbon": "^1.2.3",
     "protractor": "^1.0.0-rc4",
+    "run-sequence": "^0.3.6",
     "sinon": "^1.10.3",
     "tiny-lr": "0.0.9",
     "wiredep": "^1.8.2"
