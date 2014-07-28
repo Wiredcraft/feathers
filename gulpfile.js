@@ -262,6 +262,24 @@ gulp.task('protractor', function() {
     });
 });
 
+var testFiles = [
+  "vendor/angular/angular.js",
+  "vendor/angular-ui-router/release/angular-ui-router.js",
+  'test/unit/spec/sanity.coffee'
+]
+
+// Karma tests
+gulp.task('karma', function() {
+  return gulp.src(testFiles)
+    .pipe($.karma({
+      configFile: 'karma.conf.js',
+      action: 'run'
+    }))
+    .on('error', function(err) {
+      throw err;
+    });
+});
+
 gulp.task('test:e2e', ['protractor'], function() {
   gulp.watch('test/e2e/**/*.coffee', ['protractor']);
 });

@@ -16,25 +16,11 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // bower:js
-      "app/bower_components/jquery/jquery.js",
-      "app/bower_components/modernizr/modernizr.js",
-      "app/bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap.js",
-      "app/bower_components/angular/angular.js",
-      "app/bower_components/angular-ui-router/release/angular-ui-router.js",
-      "app/bower_components/bootstrap/dist/js/bootstrap.js",
-      "app/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js",
-      "app/bower_components/autotype/index.js",
-      "app/bower_components/bootstrap-timepicker/js/bootstrap-timepicker.min.js",
-      "app/bower_components/bootstrap-select/bootstrap-select.js",
-      "app/bower_components/angular-strap/dist/angular-strap.min.js",
+      "vendor/angular/angular.js",
+      "vendor/angular-ui-router/release/angular-ui-router.js",
       // endbower
 
       // bower:css
-      "app/bower_components/bootstrap/dist/css/bootstrap.css",
-      "app/bower_components/bootstrap-datepicker/css/datepicker.css",
-      "app/bower_components/bootstrap-datepicker/css/datepicker3.css",
-      "app/bower_components/bootstrap-timepicker/css/bootstrap-timepicker.min.css",
-      "app/bower_components/bootstrap-select/bootstrap-select.css",
       // endbower
 
       'test/unit/**/*.coffee'
