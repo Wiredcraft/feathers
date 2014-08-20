@@ -15,26 +15,18 @@
 </head>
 <body>
   <div id='menubar'>
-    <div id='logo'>
-      <a href='/feathers'>
-        <span><i class='icon-feathers'></i></span>
-        <span>{{name}}</span>
-      </a>
-    </div>
-    <div id='menu'>
-      <ul>
-      {{#each menu}}
-        <li><a href='#{{this.id}}'>{{this.title}}</a></li>
-      {{/each}}
-      </ul>
-    </div>
+    <a href='/feathers' id='logo'>
+      <span><i class='icon-feathers'></i></span>
+      <span>{{name}}</span>
+    </a>
+    <ul id='menu'>
+    {{#each menu}}
+      <li><a href='#{{this.id}}'>{{this.title}}</a></li>
+    {{/each}}
+    </ul>
   </div>
   <div id='content'>
     <article id='document'>{{{contents}}}</article>
-    <footer id='footer'>
-      <p>Built by <a href='http://wiredcraft.com'
-          target='_blank' id='wiredcraft-logo'><i class='icon-wiredcraft'></i></a>.</p>
-    </footer>
   </div>
   <a href="https://github.com/Wiredcraft/feathers"><img style="position: absolute; top: 0;
     right: 0; border: 0;"

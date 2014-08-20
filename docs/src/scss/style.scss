@@ -127,27 +127,24 @@ hr {
 }
 
 #logo {
+  display: block;
+  color: $grey;
+  text-align: center;
+  @include center-block;
   margin-bottom: 20px;
-  a {
+  i[class^='icon-'] {
+    color: $green;
+    font-size: $gigantic*2.25;
+    margin-bottom: 5px;
+  }
+  span {
     display: block;
-    color: $grey;
-    width: 150px;
-    text-align: center;
-    @include center-block;
-    i[class^='icon-'] {
-      color: $green;
-      font-size: $gigantic*2.25;
-      margin-bottom: 5px;
-    }
-    span {
-      display: block;
-      font-size: $large;
-      letter-spacing: -1px;
-    }
+    font-size: $large;
+    letter-spacing: -1px;
   }
 }
 
-#menu ul {
+#menu {
   list-style: none;
   @include margin(null null 0 0);
   padding-left: 0;
@@ -188,7 +185,7 @@ hr {
   }
 }
 
-#menu ul li {
+#menu li {
   padding-bottom: 15px;
   border-bottom: 1px solid $line;
   &:last-child {
@@ -232,7 +229,7 @@ hr {
     width: 240px;
     border-right: 1px solid $line;
     @include position(fixed, 0 null 0 0);
-    ul li {
+    li {
       padding-bottom: 0;
       border-bottom: 0;
     }

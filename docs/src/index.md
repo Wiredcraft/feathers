@@ -119,3 +119,7 @@ $ git sutree push --prefix docs/build origin gh-pages
 - [Change log](https://github.com/Wiredcraft/feathers/commits/master)
 - [Authors](https://github.com/Wiredcraft/feathers/graphs/contributors)
 
+<footer id='footer'>
+  <p>Built by <a href='http://wiredcraft.com'
+      target='_blank' id='wiredcraft-logo'><i class='icon-wiredcraft'></i></a>.</p>
+</footer>
