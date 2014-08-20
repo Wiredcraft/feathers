@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'feathers';
+	src:url('../fonts/feathers.eot?hbrxzv');
+	src:url('../fonts/feathers.eot?#iefixhbrxzv') format('embedded-opentype'),
+      url('../fonts/feathers.woff?hbrxzv') format('woff'),
+      url('../fonts/feathers.ttf?hbrxzv') format('truetype'),
+      url('../fonts/feathers.svg?hbrxzv#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon-feathers:before {
+  font-family: 'feathers';
+	content: "\21";
+}

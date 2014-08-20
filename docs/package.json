@@ -1,0 +1,28 @@
+{
+  "name": "feathers",
+  "version": "0.0.0",
+  "description": "feathers's documents",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "feathers"
+  ],
+  "author": "Yuwen Song <yuwen@wiredcraft.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "eggshell": "~0.1.19",
+    "express": "~4.7.2",
+    "handlebars": "~2.0.0-alpha.4",
+    "metalsmith": "~0.9.0",
+    "metalsmith-html-minifier": "^1.0.0",
+    "metalsmith-markdown": "~0.2.1",
+    "metalsmith-metadata": "0.0.1",
+    "metalsmith-permalinks": "~0.3.2",
+    "metalsmith-sass": "~0.3.0",
+    "metalsmith-templates": "~0.5.2",
+    "node-bourbon": "^1.2.3",
+    "normalize.css": "^3.0.1"
+  }
+}
