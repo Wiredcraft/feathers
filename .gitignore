@@ -1,5 +1,6 @@
 .*
 !.gitignore
+!.travis.yml
 !.gitmodules
 *~
 node_modules/

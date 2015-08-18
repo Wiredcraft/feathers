@@ -1,6 +1,4 @@
-# Feathers
-[![Travis-CI](https://travis-ci.org/Wiredcraft/feathers.svg)](https://travis-ci.org/Wiredcraft/feathers)
-
+# Feathers[![Travis-CI](https://travis-ci.org/Wiredcraft/feathers.svg)](https://travis-ci.org/Wiredcraft/feathers)
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 ## Features
