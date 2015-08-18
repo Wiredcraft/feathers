@@ -1,6 +1,14 @@
-## CVR-candidate-module
+## Feathers
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
+
+### What are used here
+
+* **Babel** ES6 transcompiler
+* **Webpack** to manage and bundle code
+* **Standard** for code style
+* **Mocha** for testing
 
 ### Notes for development
 
