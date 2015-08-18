@@ -8,12 +8,11 @@
 * **Babel** ES6 transcompiler
 * **Webpack** to manage and bundle code
 * **Standard** for code style
-* **Mocha** for testing
+* **tape** for testing
 
 ### Notes for development
 
 To make sure the code style is consistence, run `npm run check`, we use [standard](https://github.com/feross/standard) here.
-
 
 `npm install` to install all dependencies
 

@@ -20,7 +20,7 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin('app.css', { allChunks: true }),
     new HtmlWebpackPlugin({
-      title: 'CVR-candidate-module',
+      title: 'feathers',
       filename: 'index.html',
       template: 'index.template.html',
       favicon: path.join(__dirname, 'assets', 'images', 'favicon.ico')

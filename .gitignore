@@ -1,9 +1,6 @@
 .*
 !.gitignore
-!.bowerrc
 !.gitmodules
 *~
-build/
 node_modules/
-vendor/
 dist/
