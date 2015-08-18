@@ -37,6 +37,7 @@
     "browserify": "^11.0.1",
     "extract-text-webpack-plugin": "^0.8.2",
     "html-webpack-plugin": "^1.6.1",
+    "precommit-hook": "^3.0.0",
     "react-hot-loader": "^1.2.8",
     "snazzy": "^2.0.1",
     "standard": "^5.0.2",

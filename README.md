@@ -1,16 +1,31 @@
-## Feathers
+# Feathers
+[![Travis-CI](https://travis-ci.org/Wiredcraft/feathers.svg)](https://travis-ci.org/Wiredcraft/feathers)
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-
-### What are used here
+## Features
 
 * **Babel** ES6 transcompiler
-* **Webpack** to manage and bundle code
+* **Webpack** to manage and bundle code(for hot-reload...)
 * **Standard** for code style
-* **tape** for testing
+* **Tape** for testing
+* **Travis CI** integration
+* **React** the UI
 
-### Notes for development
+## Getting Started
+
+### Clone the repo
+
+```
+git clone git@github.com:Wiredcraft/feathers.git <your-new-repo-name>
+cd <your-repo-name>
+rm -rf <.git> # strip the boilerplate .git config
+git init # create your own .git config
+git add .
+git commit -m 'Inital commit'
+```
+
+### Run the code
 
 To make sure the code style is consistence, run `npm run check`, we use [standard](https://github.com/feross/standard) here.
 
